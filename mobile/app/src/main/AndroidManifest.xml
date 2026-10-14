@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <application
         android:allowBackup="true"
@@ -7,16 +10,32 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.FIGHT">
+        android:theme="@style/Theme.BAKUPICAH"
+        tools:targetApi="31">
 
         <activity
-            android:name=".MainActivity"
-            android:exported="true">
+            android:name=".ui.auth.SplashActivity"
+            android:exported="true"
+            android:theme="@style/Theme.BAKUPICAH">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <activity android:name=".ui.auth.WelcomeActivity" android:exported="false" />
+        <activity android:name=".ui.auth.LoginActivity" android:exported="false" />
+        <activity android:name=".ui.auth.RegisterActivity" android:exported="false" />
+        <activity android:name=".ui.auth.ForgotPasswordActivity" android:exported="false" />
+        <activity android:name=".ui.auth.ProfileSetupActivity" android:exported="false" />
+
+        <activity android:name=".MainActivity" android:exported="false" />
+
+        <activity android:name=".ui.detail.FighterDetailActivity" android:exported="false" />
+        <activity android:name=".ui.chat.ChatActivity" android:exported="false" />
+        <activity android:name=".ui.bout.DepositCheckoutActivity" android:exported="false" />
+        <activity android:name=".ui.bout.BoutTrackerActivity" android:exported="false" />
+        <activity android:name=".ui.bout.SubmitResultActivity" android:exported="false" />
     </application>
 
 </manifest>

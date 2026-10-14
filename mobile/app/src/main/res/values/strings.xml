@@ -1,5 +1,41 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">FIGHT</string>
-    <string name="welcome_placeholder">Fighter matchmaking &amp; bout scheduling</string>
+    <string name="app_name">BAKU PICAH</string>
+    <string name="brand_first">BAKU</string>
+    <string name="brand_second">PICAH</string>
+    <string name="tagline">Temukan lawan, sepakati laga, naikkan level.</string>
+
+    <!-- Auth -->
+    <string name="login">Masuk</string>
+    <string name="register">Daftar</string>
+    <string name="email">Email</string>
+    <string name="password">Password</string>
+    <string name="forgot_password">Lupa password?</string>
+    <string name="show">Lihat</string>
+    <string name="hide">Sembunyikan</string>
+    <string name="login_google">Lanjut dengan Google</string>
+    <string name="no_account">Belum punya akun?</string>
+    <string name="have_account">Sudah punya akun?</string>
+
+    <!-- Nav -->
+    <string name="nav_discover">Discover</string>
+    <string name="nav_matches">Matches</string>
+    <string name="nav_bouts">Bouts</string>
+    <string name="nav_profile">Profil</string>
+
+    <!-- Discover -->
+    <string name="discover_title">Cari Lawan</string>
+    <string name="pass">Lewati</string>
+    <string name="challenge">Tantang</string>
+    <string name="view_detail">Detail</string>
+
+    <!-- Chat -->
+    <string name="chat_hint">Tulis pesan…</string>
+    <string name="send">Kirim</string>
+    <string name="propose_match">Ajukan Laga</string>
+
+    <!-- Bout -->
+    <string name="propose_bout">Ajukan Pertandingan</string>
+    <string name="deposit_title">Deposit &amp; Komitmen</string>
+    <string name="submit_result">Laporkan Hasil</string>
 </resources>

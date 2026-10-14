@@ -1,11 +1,43 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:tools="http://schemas.android.com/tools">
-    <!-- Base application theme (dark-athletic design system). -->
-    <style name="Theme.FIGHT" parent="Theme.Material3.DayNight.NoActionBar">
-        <item name="colorPrimary">@color/fight_accent</item>
-        <item name="colorOnPrimary">@color/fight_white</item>
-        <item name="android:colorBackground">@color/fight_bg</item>
-        <item name="colorSurface">@color/fight_surface</item>
-        <item name="android:statusBarColor" tools:targetApi="l">@color/fight_bg</item>
+    <!-- BAKU PICAH base theme: dark athletic, blood-red accents. -->
+    <style name="Theme.BAKUPICAH" parent="Theme.Material3.DayNight.NoActionBar">
+        <item name="colorPrimary">@color/bp_blood</item>
+        <item name="colorOnPrimary">@color/bp_white</item>
+        <item name="colorSecondary">@color/bp_blood_bright</item>
+        <item name="colorOnSecondary">@color/bp_white</item>
+        <item name="android:colorBackground">@color/bp_bg</item>
+        <item name="colorSurface">@color/bp_surface</item>
+        <item name="colorOnSurface">@color/bp_text</item>
+        <item name="colorError">@color/bp_danger</item>
+        <item name="android:statusBarColor" tools:targetApi="l">@color/bp_bg</item>
+        <item name="android:navigationBarColor" tools:targetApi="l">@color/bp_bg</item>
+    </style>
+
+    <!-- Primary CTA: pill-shaped blood-red button. -->
+    <style name="Widget.BP.Button" parent="Widget.Material3.Button">
+        <item name="android:textAllCaps">false</item>
+        <item name="backgroundTint">@color/bp_blood</item>
+        <item name="cornerRadius">28dp</item>
+        <item name="android:paddingTop">12dp</item>
+        <item name="android:paddingBottom">12dp</item>
+    </style>
+
+    <style name="Widget.BP.Button.Outline" parent="Widget.Material3.Button.OutlinedButton">
+        <item name="android:textAllCaps">false</item>
+        <item name="strokeColor">@color/bp_border</item>
+        <item name="android:textColor">@color/bp_text</item>
+        <item name="cornerRadius">28dp</item>
+    </style>
+
+    <style name="TextAppearance.BP.Display" parent="TextAppearance.Material3.HeadlineLarge">
+        <item name="android:textColor">@color/bp_text</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="Widget.BP.Field" parent="Widget.Material3.TextInputLayout.OutlinedBox">
+        <item name="boxStrokeColor">@color/bp_border</item>
+        <item name="hintTextColor">@color/bp_text_muted</item>
+        <item name="boxBackgroundColor">@color/bp_surface2</item>
     </style>
 </resources>

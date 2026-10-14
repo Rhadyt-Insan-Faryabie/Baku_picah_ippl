@@ -5,4 +5,13 @@ const api = axios.create({
   headers: { 'Content-Type': 'application/json' },
 });
 
+// Attach bearer token if an admin is logged in.
+api.interceptors.request.use((config) => {
+  const token = localStorage.getItem('bp_admin_token');
+  if (token) {
+    config.headers.Authorization = `Bearer ${token}`;
+  }
+  return config;
+});
+
 export default api;
