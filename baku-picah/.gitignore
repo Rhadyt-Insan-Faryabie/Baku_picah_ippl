@@ -1,0 +1,11 @@
+node_modules/
+dist/
+dist-electron/
+.env
+.env.local
+*.log
+.DS_Store
+
+# Hotfix against root .gitignore "build/" (meant for Android): keep the app icon.
+!build/
+!build/icon.png
