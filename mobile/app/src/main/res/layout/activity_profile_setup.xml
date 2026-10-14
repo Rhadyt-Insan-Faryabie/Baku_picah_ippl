@@ -75,30 +75,57 @@
                 android:textColor="@color/bp_text" />
         </com.google.android.material.textfield.TextInputLayout>
 
-        <com.google.android.material.textfield.TextInputLayout
-            style="@style/Widget.BP.Field"
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="14dp"
-            android:hint="Disiplin (Boxing/MMA/Muay Thai/BJJ)">
+            android:background="@drawable/bg_card"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:padding="16dp">
 
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/etDiscipline"
-                android:layout_width="match_parent"
+            <TextView
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:inputType="text"
-                android:textColor="@color/bp_text" />
-        </com.google.android.material.textfield.TextInputLayout>
+                android:layout_weight="1"
+                android:text="Aturan Tanding"
+                android:textColor="@color/bp_text_muted"
+                android:textSize="13sp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="MMA"
+                android:textColor="@color/bp_blood_bright"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="Kota"
+            android:textColor="@color/bp_text_muted"
+            android:textSize="13sp" />
+
+        <Spinner
+            android:id="@+id/spCity"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            android:background="@drawable/bg_card"
+            android:paddingHorizontal="10dp" />
 
         <com.google.android.material.textfield.TextInputLayout
             style="@style/Widget.BP.Field"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="14dp"
-            android:hint="Sasana / Gym">
+            android:hint="Background Bela Diri (pisah dengan koma)">
 
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/etGym"
+                android:id="@+id/etMartialArts"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="text"

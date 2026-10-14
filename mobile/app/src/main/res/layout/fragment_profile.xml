@@ -135,7 +135,7 @@
             android:layout_marginTop="20dp"
             android:background="@drawable/bg_card"
             android:padding="16dp"
-            android:text="Sasana: Gym Rajawali, Jakarta"
+            android:text="Jakarta · Background: Boxing, BJJ"
             android:textColor="@color/bp_text"
             android:textSize="14sp" />
 

@@ -8,10 +8,12 @@ import android.os.Looper;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.fight.app.MainActivity;
 import com.fight.app.R;
+import com.fight.app.data.SessionManager;
 
 /**
- * Branded splash screen; routes to Welcome after a short delay.
+ * Branded splash screen; routes to the app if logged in, otherwise to Welcome.
  */
 @SuppressLint("CustomSplashScreen")
 public class SplashActivity extends AppCompatActivity {
@@ -24,7 +26,9 @@ public class SplashActivity extends AppCompatActivity {
         setContentView(R.layout.activity_splash);
 
         new Handler(Looper.getMainLooper()).postDelayed(() -> {
-            startActivity(new Intent(SplashActivity.this, WelcomeActivity.class));
+            boolean loggedIn = SessionManager.isLoggedIn(this);
+            Class<?> next = loggedIn ? MainActivity.class : WelcomeActivity.class;
+            startActivity(new Intent(SplashActivity.this, next));
             finish();
         }, SPLASH_DELAY_MS);
     }

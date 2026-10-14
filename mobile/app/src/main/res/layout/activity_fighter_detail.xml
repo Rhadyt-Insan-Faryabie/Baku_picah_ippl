@@ -30,7 +30,7 @@
             android:id="@+id/tvMeta"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Welterweight · Boxing · Kediri"
+            android:text="Welterweight · MMA · Kediri"
             android:textColor="@color/bp_text_muted"
             android:textSize="14sp" />
 

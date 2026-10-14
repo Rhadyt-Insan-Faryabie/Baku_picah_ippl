@@ -14,7 +14,7 @@ import com.google.android.material.bottomsheet.BottomSheetDialogFragment;
 import com.google.android.material.button.MaterialButton;
 
 /**
- * Bottom sheet to propose a bout: date, time, venue, weight target, rule set.
+ * Bottom sheet to propose a bout: date, time, location, weight target. Rules are MMA.
  */
 public class ProposeBoutBottomSheet extends BottomSheetDialogFragment {
 

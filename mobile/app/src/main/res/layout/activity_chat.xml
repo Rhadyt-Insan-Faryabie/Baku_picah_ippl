@@ -84,7 +84,7 @@
                 android:layout_height="wrap_content"
                 android:background="@drawable/bg_card"
                 android:padding="12dp"
-                android:text="Oke, kirim detail venue &amp; aturannya"
+                android:text="Oke, kirim detail lokasi &amp; aturannya"
                 android:textColor="@color/bp_text"
                 android:textSize="14sp" />
         </LinearLayout>

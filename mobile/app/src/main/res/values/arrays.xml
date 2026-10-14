@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Kota (dropdown) untuk profil petarung. -->
+    <string-array name="bp_cities">
+        <item>Jakarta</item>
+        <item>Bandung</item>
+        <item>Surabaya</item>
+        <item>Medan</item>
+        <item>Yogyakarta</item>
+        <item>Semarang</item>
+        <item>Makassar</item>
+        <item>Palembang</item>
+        <item>Denpasar</item>
+        <item>Bekasi</item>
+        <item>Tangerang</item>
+        <item>Depok</item>
+        <item>Bogor</item>
+        <item>Malang</item>
+        <item>Padang</item>
+        <item>Pekanbaru</item>
+        <item>Balikpapan</item>
+        <item>Banjarmasin</item>
+        <item>Pontianak</item>
+        <item>Manado</item>
+    </string-array>
+</resources>
