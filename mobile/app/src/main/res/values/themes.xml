@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme (dark-athletic design system). -->
+    <style name="Theme.FIGHT" parent="Theme.Material3.DayNight.NoActionBar">
+        <item name="colorPrimary">@color/fight_accent</item>
+        <item name="colorOnPrimary">@color/fight_white</item>
+        <item name="android:colorBackground">@color/fight_bg</item>
+        <item name="colorSurface">@color/fight_surface</item>
+        <item name="android:statusBarColor" tools:targetApi="l">@color/fight_bg</item>
+    </style>
+</resources>
