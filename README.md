@@ -46,7 +46,7 @@ Platform ini mengintegrasikan aplikasi mobile berbasis **Android Native (Java)**
 | Lapisan | Teknologi | Deskripsi |
 |---|---|---|
 | **Mobile Client** | Java (Android SDK) | Aplikasi native untuk Petarung |
-| **Web Dashboard** | React / Streamlit | Dashboard admin dan operasional |
+| **Web Dashboard** | vue| Dashboard admin dan operasional |
 | **Backend API** | Python (FastAPI / Flask) | RESTful API & Service Layer |
 | **Matchmaking Core** | Python (scikit-learn / NumPy) | Algoritma klasifikasi & scoring kecocokan lawan |
 | **Database** | MySQL (3NF Normalized) | Penyimpanan data relasional terstruktur |
