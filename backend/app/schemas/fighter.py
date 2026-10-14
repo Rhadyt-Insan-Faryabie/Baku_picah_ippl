@@ -45,6 +45,28 @@ class FighterOut(FighterBase):
     model_config = {"from_attributes": True}
 
 
+class FighterPublic(BaseModel):
+    """Public view of a fighter, safe to expose to other fighters.
+
+    Unlike FighterOut this omits the email address.
+    """
+
+    id: int
+    username: str
+    full_name: str | None = None
+    city: str | None = None
+    weight_kg: float | None = None
+    height_cm: float | None = None
+    martial_arts: list[str] | None = None
+    weight_class: str | None = None
+    wins: int
+    losses: int
+    draws: int
+    created_at: datetime
+
+    model_config = {"from_attributes": True}
+
+
 class Token(BaseModel):
     access_token: str
     token_type: str = "bearer"

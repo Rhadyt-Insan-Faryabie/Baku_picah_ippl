@@ -1,11 +1,12 @@
 """Fighter profile routes."""
-from fastapi import APIRouter, Depends
+from fastapi import APIRouter, Depends, Query
+from sqlalchemy import select
 from sqlalchemy.orm import Session
 
 from app.api.deps import get_current_user
 from app.core.database import get_db
 from app.models.fighter import Fighter
-from app.schemas.fighter import FighterOut, FighterUpdate
+from app.schemas.fighter import FighterOut, FighterPublic, FighterUpdate
 
 router = APIRouter()
 
@@ -31,3 +32,17 @@ def update_my_profile(
     db.commit()
     db.refresh(current_user)
     return current_user
+
+
+@router.get("/list", response_model=list[FighterPublic])
+def list_fighters(
+    limit: int = Query(default=100, ge=1, le=200),
+    current_user: Fighter = Depends(get_current_user),
+    db: Session = Depends(get_db),
+):
+    fighters = db.scalars(
+        select(Fighter)
+        .where(Fighter.role == "fighter")
+        .order_by(Fighter.full_name, Fighter.username)
+    ).all()
+    return fighters
