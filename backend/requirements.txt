@@ -2,10 +2,12 @@ fastapi
 uvicorn[standard]
 sqlalchemy
 pymysql
+alembic
 pydantic
 pydantic-settings
+email-validator
 python-dotenv
 python-jose[cryptography]
-passlib[bcrypt]
+bcrypt
 scikit-learn
 numpy
