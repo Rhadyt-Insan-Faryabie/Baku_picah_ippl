@@ -1,6 +1,7 @@
 <script setup>
 import { ref } from 'vue';
 import { useRouter, useRoute } from 'vue-router';
+import api from '../services/api';
 
 const router = useRouter();
 const route = useRoute();
@@ -11,23 +12,36 @@ const showPassword = ref(false);
 const loading = ref(false);
 const error = ref('');
 
-function login() {
+async function login() {
   error.value = '';
   if (!email.value || !password.value) {
     error.value = 'Email dan password wajib diisi.';
     return;
   }
+
   loading.value = true;
-  // Placeholder: replace with real API call.
-  setTimeout(() => {
-    loading.value = false;
-    if (password.value.length < 4) {
-      error.value = 'Password minimal 4 karakter.';
+  try {
+    const { data } = await api.post('/auth/login', {
+      email: email.value,
+      password: password.value,
+    });
+
+    if (data.fighter?.role !== 'admin') {
+      error.value = 'Akun ini bukan administrator.';
       return;
     }
-    localStorage.setItem('bp_admin_token', 'mock-admin-token');
+
+    localStorage.setItem('bp_admin_token', data.access_token);
+    localStorage.setItem('bp_admin_user', JSON.stringify(data.fighter));
     router.push(route.query.redirect || { name: 'dashboard' });
-  }, 400);
+  } catch (e) {
+    const detail = e.response?.data?.detail;
+    error.value = Array.isArray(detail)
+      ? detail[0]?.msg
+      : detail || 'Gagal masuk. Periksa kredensial Anda.';
+  } finally {
+    loading.value = false;
+  }
 }
 </script>
 
@@ -67,7 +81,7 @@ function login() {
         </button>
       </form>
 
-      <p class="auth__hint muted">Demo: isi email & password apa pun (min. 4 karakter).</p>
+      <p class="auth__hint muted">Gunakan akun administrator (mis. admin@bakupicah.id).</p>
     </div>
   </div>
 </template>

@@ -16,8 +16,8 @@ const filters = ['Semua', 'Awaiting Verification', 'Opponent Accepted', 'Pending
 const columns = [
   { key: 'id', label: 'ID' },
   { key: 'match', label: 'Laga' },
-  { key: 'discipline', label: 'Disiplin' },
-  { key: 'venue', label: 'Venue' },
+  { key: 'weight', label: 'Kelas' },
+  { key: 'location', label: 'Lokasi' },
   { key: 'date', label: 'Jadwal' },
   { key: 'deposit', label: 'Deposit' },
   { key: 'status', label: 'Status' },
@@ -84,9 +84,9 @@ function close() {
         <div class="detail__row"><span class="muted">ID</span><span>{{ selected.id }}</span></div>
         <div class="detail__row"><span class="muted">Petarung A</span><span>{{ selected.fighterA }}</span></div>
         <div class="detail__row"><span class="muted">Petarung B</span><span>{{ selected.fighterB }}</span></div>
-        <div class="detail__row"><span class="muted">Disiplin</span><span>{{ selected.discipline }}</span></div>
+        <div class="detail__row"><span class="muted">Aturan</span><span>MMA</span></div>
         <div class="detail__row"><span class="muted">Kelas Berat</span><span>{{ selected.weight }}</span></div>
-        <div class="detail__row"><span class="muted">Venue</span><span>{{ selected.venue }}</span></div>
+        <div class="detail__row"><span class="muted">Lokasi</span><span>{{ selected.location }}</span></div>
         <div class="detail__row"><span class="muted">Jadwal</span><span>{{ selected.date }}</span></div>
         <div class="detail__row"><span class="muted">Deposit</span><span>{{ selected.deposit }}</span></div>
         <div class="detail__row">

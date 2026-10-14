@@ -7,7 +7,7 @@ import { stats, bouts, disputes } from '../services/mockData.js';
 const columns = [
   { key: 'fighterA', label: 'Petarung A' },
   { key: 'fighterB', label: 'Petarung B' },
-  { key: 'discipline', label: 'Disiplin' },
+  { key: 'weight', label: 'Kelas' },
   { key: 'date', label: 'Jadwal' },
   { key: 'status', label: 'Status' },
 ];

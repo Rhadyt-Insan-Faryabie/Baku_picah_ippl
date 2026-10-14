@@ -1,6 +1,8 @@
 /**
  * Mock data for the admin dashboard.
  * Replace with real API calls once the backend is ready.
+ *
+ * Concept: BAKU PICAH is MMA-only (street / random locations, no sasana directory).
  */
 
 export const stats = [
@@ -15,9 +17,8 @@ export const bouts = [
     id: 'BT-1042',
     fighterA: 'Rambo Sitorus',
     fighterB: 'Dedi "Si Petir"',
-    discipline: 'Boxing',
     weight: 'Welterweight',
-    venue: 'Sasana Garuda, Bandung',
+    location: 'Jl. Sudirman, Bandung',
     date: '2026-10-20 19:00',
     deposit: 'Rp 500.000',
     status: 'Awaiting Verification',
@@ -26,9 +27,8 @@ export const bouts = [
     id: 'BT-1041',
     fighterA: 'Andi Pratama',
     fighterB: 'Bagas Wijaya',
-    discipline: 'MMA',
     weight: 'Lightweight',
-    venue: 'Gym Rajawali, Jakarta',
+    location: 'GOR Senayan, Jakarta',
     date: '2026-10-19 20:30',
     deposit: 'Rp 750.000',
     status: 'Opponent Accepted',
@@ -37,9 +37,8 @@ export const bouts = [
     id: 'BT-1040',
     fighterA: 'Yoga Saputra',
     fighterB: 'Krisna Mahesa',
-    discipline: 'Muay Thai',
     weight: 'Featherweight',
-    venue: 'Sasana Naga, Surabaya',
+    location: 'Lapangan Tugu, Surabaya',
     date: '2026-10-18 18:00',
     deposit: 'Rp 400.000',
     status: 'Pending Opponent',
@@ -48,9 +47,8 @@ export const bouts = [
     id: 'BT-1039',
     fighterA: 'Fajar Nugroho',
     fighterB: 'Reza Hidayat',
-    discipline: 'BJJ',
     weight: 'Middleweight',
-    venue: 'Dojo Merah, Yogyakarta',
+    location: 'Alun-alun, Yogyakarta',
     date: '2026-10-16 17:00',
     deposit: 'Rp 300.000',
     status: 'Confirmed',
@@ -59,9 +57,8 @@ export const bouts = [
     id: 'BT-1038',
     fighterA: 'Taufik Akbar',
     fighterB: 'Ilham Ramadhan',
-    discipline: 'Boxing',
     weight: 'Heavyweight',
-    venue: 'Sasana Banteng, Medan',
+    location: 'Lapangan Merdeka, Medan',
     date: '2026-10-14 19:30',
     deposit: 'Rp 1.000.000',
     status: 'Completed',
@@ -91,20 +88,16 @@ export const disputes = [
   },
 ];
 
+/** Standar kelas berat MMA (kg). Rules tanding selalu MMA. */
 export const weightClasses = [
-  { id: 1, name: 'Flyweight', maxKg: 57, discipline: 'Boxing' },
-  { id: 2, name: 'Featherweight', maxKg: 66, discipline: 'Boxing' },
-  { id: 3, name: 'Lightweight', maxKg: 70, discipline: 'MMA' },
-  { id: 4, name: 'Welterweight', maxKg: 77, discipline: 'Boxing' },
-  { id: 5, name: 'Middleweight', maxKg: 84, discipline: 'MMA' },
-  { id: 6, name: 'Heavyweight', maxKg: 120, discipline: 'Boxing' },
-];
-
-export const venues = [
-  { id: 1, name: 'Sasana Garuda', city: 'Bandung', verified: true },
-  { id: 2, name: 'Gym Rajawali', city: 'Jakarta', verified: true },
-  { id: 3, name: 'Sasana Naga', city: 'Surabaya', verified: true },
-  { id: 4, name: 'Dojo Merah', city: 'Yogyakarta', verified: false },
+  { id: 1, name: 'Flyweight', maxKg: 56.7 },
+  { id: 2, name: 'Bantamweight', maxKg: 61.2 },
+  { id: 3, name: 'Featherweight', maxKg: 65.8 },
+  { id: 4, name: 'Lightweight', maxKg: 70.3 },
+  { id: 5, name: 'Welterweight', maxKg: 77.1 },
+  { id: 6, name: 'Middleweight', maxKg: 83.9 },
+  { id: 7, name: 'Light Heavyweight', maxKg: 92.9 },
+  { id: 8, name: 'Heavyweight', maxKg: 120.2 },
 ];
 
 export const reports = [
