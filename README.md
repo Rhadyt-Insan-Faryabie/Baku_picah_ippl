@@ -175,6 +175,7 @@ Keterangan status:
 | FR-024 | Menganalisis Profil Petarung (AI) | Selesai | 100% | Mesin skoring berbobot menganalisis kelas berat, bela diri, kota, dan pengalaman (berbasis aturan; ML scikit-learn di roadmap) |
 | FR-025 | Mencocokkan Petarung (AI) | Selesai | 100% | Komputasi match score berjalan (berbasis aturan) |
 | FR-026 | Memberikan Rekomendasi Lawan (AI) | Selesai | 100% | `GET /api/match/recommendations` + tampilan Discover |
+| **TOTAL** | **26 Kebutuhan Fungsional** | **7 Selesai, 5 Sebagian, 14 Belum** | **40,0%** | **Rata-rata capaian = 10,40 dari 26 FR** |
 
 ### Ringkasan Progres
 
@@ -183,7 +184,7 @@ Keterangan status:
 | Selesai | 7 | 100% |
 | Sebagian | 5 | 60% - 80% |
 | Belum | 14 | 0% |
-| **Total** | **26** | |
+| **Total** | **26** | **Progres keseluruhan: 40,0%** |
 
 Progres keseluruhan: **40,0%** — dihitung sebagai rata-rata capaian seluruh FR (10,40 dari 26). FR berstatus "Sebagian" dinilai sesuai porsi yang sudah berjalan; misalnya FR-011 dan FR-019 bagian back-end-nya sudah selesai dan teruji (tertinggal UI), sedangkan FR-003/005/006 baru sebagian tercakup.
 
