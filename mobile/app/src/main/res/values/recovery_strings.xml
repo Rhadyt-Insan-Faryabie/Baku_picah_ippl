@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="recovery_section">KEAMANAN AKUN</string>
+    <string name="recovery_title">Pulihkan akses</string>
+    <string name="recovery_heading">KEMBALI\nKE ARENA.</string>
+    <string name="recovery_subtitle">Pulihkan akses dengan email terdaftar. Pengiriman tautan pemulihan belum tersedia saat ini.</string>
+    <string name="recovery_email_label">Email terdaftar</string>
+    <string name="recovery_email_hint">nama@email.com</string>
+    <string name="recovery_send">Kirim tautan pemulihan</string>
+    <string name="recovery_card_title">Setelah kamu mengirim</string>
+    <string name="recovery_card_body">Jika layanan pemulihan tersedia dan email terdaftar, periksa kotak masuk serta folder spam untuk petunjuk selanjutnya.</string>
+    <string name="recovery_privacy">Jangan berikan tautan pemulihan atau kode keamanan ke siapa pun.</string>
+    <string name="recovery_back">Kembali ke halaman masuk</string>
+    <string name="recovery_more">Opsi akun lainnya</string>
+    <string name="recovery_menu_login">Masuk</string>
+    <string name="recovery_menu_register">Daftar</string>
+    <string name="recovery_email_required">Masukkan email terdaftar terlebih dahulu.</string>
+    <string name="recovery_email_invalid">Masukkan alamat email yang valid.</string>
+    <string name="recovery_unavailable">Pemulihan password belum tersedia. Email pemulihan TIDAK dikirim. Kamu dapat kembali ke halaman masuk.</string>
+</resources>

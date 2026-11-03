@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="register_section">MULAI DARI SINI</string>
+    <string name="register_title">Buat akun fighter</string>
+    <string name="register_back">Kembali</string>
+    <string name="register_more">Opsi pendaftaran</string>
+    <string name="register_heading">AMBISIMU.\nARENA BARUMU.</string>
+    <string name="register_subtitle">Bangun identitas fighter, bukan sekadar akun.</string>
+    <string name="register_name_label">Nama lengkap</string>
+    <string name="register_name_hint">Nama lengkapmu</string>
+    <string name="register_email_label">Email</string>
+    <string name="register_email_hint">nama@email.com</string>
+    <string name="register_password_label">Password</string>
+    <string name="register_password_hint">Buat password</string>
+    <string name="register_password_guidance">Minimal 8 karakter, angka, dan huruf.</string>
+    <string name="register_confirm_label">Konfirmasi password</string>
+    <string name="register_confirm_hint">Ulangi password</string>
+    <string name="register_show_password">Tampilkan password</string>
+    <string name="register_hide_password">Sembunyikan password</string>
+    <string name="register_show_confirm_password">Tampilkan konfirmasi password</string>
+    <string name="register_hide_confirm_password">Sembunyikan konfirmasi password</string>
+    <string name="register_consent">Saya berusia 18+ dan setuju Ketentuan, Privasi, serta Kode Fair Play.</string>
+    <string name="register_submit">Daftar &amp; buat profil</string>
+    <string name="register_processing">Memproses...</string>
+    <string name="register_wait_for_request">Tunggu hingga proses pendaftaran selesai.</string>
+    <string name="register_google">Daftar dengan Google</string>
+    <string name="register_google_unavailable">Pendaftaran dengan Google belum tersedia.</string>
+    <string name="register_login_link">Sudah punya akun?\u0020\u0020Masuk</string>
+    <string name="register_login">Masuk</string>
+    <string name="register_forgot_password">Lupa password?</string>
+    <string name="register_error_name">Nama lengkap wajib diisi.</string>
+    <string name="register_error_email_required">Email wajib diisi.</string>
+    <string name="register_error_email_invalid">Masukkan alamat email yang valid.</string>
+    <string name="register_error_password_required">Password wajib diisi.</string>
+    <string name="register_error_password_invalid">Gunakan minimal 8 karakter dengan huruf A–Z atau a–z dan angka 0–9.</string>
+    <string name="register_error_password_length">Password maksimal 128 karakter.</string>
+    <string name="register_error_confirm_required">Konfirmasi password wajib diisi.</string>
+    <string name="register_error_confirm_mismatch">Konfirmasi password tidak cocok.</string>
+    <string name="register_error_consent">Konfirmasi bahwa kamu berusia 18+ dan menyetujui Ketentuan, Privasi, serta Kode Fair Play.</string>
+    <string name="register_error_request">Pendaftaran gagal. Silakan coba lagi.</string>
+</resources>

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="bp_login_text">#F7F5F1</color>
+    <color name="bp_login_muted">#A6A6A6</color>
+    <color name="bp_login_accent">#FF6666</color>
+    <color name="bp_login_input">#1B1B1B</color>
+    <color name="bp_login_border">#353535</color>
+    <color name="bp_login_secondary">#242424</color>
+    <color name="bp_login_guidance">#2C1616</color>
+</resources>

@@ -42,6 +42,7 @@ local.properties
 .vscode/*
 !.vscode/extensions.json
 !.vscode/settings.json
+.zed/settings.json
 
 # ---- OS ----
 .DS_Store

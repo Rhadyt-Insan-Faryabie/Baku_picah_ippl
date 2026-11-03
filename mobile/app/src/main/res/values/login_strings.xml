@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="login_section">AKUN FIGHTER</string>
+    <string name="login_title">Masuk ke arena</string>
+    <string name="login_heading">SIAP UNTUK\nRONDE BERIKUTNYA?</string>
+    <string name="login_subtitle">Masuk dan temukan partner sparring sepadan.</string>
+    <string name="login_email_hint">rizky.pratama@email.com</string>
+    <string name="login_password_hint">••••••••••</string>
+    <string name="login_alternative">atau lanjutkan dengan</string>
+    <string name="login_google_label">Masuk dengan Google</string>
+    <string name="login_privacy">Akunmu aman. Kami tidak pernah membagikan nomor pribadi ke fighter lain.</string>
+    <string name="login_register_link">Belum punya akun?  Daftar sekarang</string>
+    <string name="login_back">Kembali</string>
+    <string name="login_more">Opsi akun</string>
+    <string name="login_processing">Memproses…</string>
+</resources>

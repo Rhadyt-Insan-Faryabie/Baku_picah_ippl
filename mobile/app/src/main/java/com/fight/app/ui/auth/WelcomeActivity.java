@@ -21,7 +21,7 @@ public class WelcomeActivity extends AppCompatActivity {
         MaterialButton btnStart = findViewById(R.id.btnStart);
         MaterialButton btnLogin = findViewById(R.id.btnToLogin);
 
-        btnStart.setOnClickListener(v -> startActivity(new Intent(this, ProfileSetupActivity.class)));
+        btnStart.setOnClickListener(v -> startActivity(new Intent(this, RegisterActivity.class)));
         btnLogin.setOnClickListener(v -> startActivity(new Intent(this, LoginActivity.class)));
     }
 }

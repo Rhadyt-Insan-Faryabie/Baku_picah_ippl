@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="TextAppearance.BP.Login.Body" parent="TextAppearance.Material3.BodyMedium">
+        <item name="fontFamily">@font/inter_regular</item>
+        <item name="android:fontFamily">@font/inter_regular</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:textColor">@color/bp_login_text</item>
+        <item name="android:includeFontPadding">false</item>
+        <item name="android:letterSpacing">0</item>
+    </style>
+
+    <style name="TextAppearance.BP.Login.Muted" parent="TextAppearance.BP.Login.Body">
+        <item name="android:textColor">@color/bp_login_muted</item>
+    </style>
+
+    <style name="TextAppearance.BP.Login.Label" parent="TextAppearance.BP.Login.Body">
+        <item name="fontFamily">@font/inter_medium</item>
+        <item name="android:fontFamily">@font/inter_medium</item>
+        <item name="android:textSize">12sp</item>
+        <item name="android:textColor">@color/bp_login_muted</item>
+    </style>
+
+    <style name="TextAppearance.BP.Login.Small" parent="TextAppearance.BP.Login.Body">
+        <item name="android:textSize">12sp</item>
+        <item name="android:textColor">@color/bp_login_muted</item>
+    </style>
+
+    <style name="TextAppearance.BP.Login.Display" parent="TextAppearance.Material3.DisplaySmall">
+        <item name="fontFamily">@font/barlow_condensed_bold</item>
+        <item name="android:fontFamily">@font/barlow_condensed_bold</item>
+        <item name="android:textSize">42sp</item>
+        <item name="android:textColor">@color/bp_login_text</item>
+        <item name="android:lineSpacingExtra">0dp</item>
+        <item name="android:includeFontPadding">false</item>
+        <item name="android:letterSpacing">0</item>
+    </style>
+
+    <style name="TextAppearance.BP.Login.Title" parent="TextAppearance.BP.Login.Display">
+        <item name="android:textSize">28sp</item>
+    </style>
+
+    <style name="TextAppearance.BP.Login.Brand" parent="TextAppearance.BP.Login.Display">
+        <item name="fontFamily">@font/barlow_condensed_extrabold</item>
+        <item name="android:fontFamily">@font/barlow_condensed_extrabold</item>
+        <item name="android:textSize">36sp</item>
+    </style>
+
+    <style name="Widget.BP.Login.Button" parent="Widget.Material3.Button">
+        <item name="fontFamily">@font/inter_bold</item>
+        <item name="android:fontFamily">@font/inter_bold</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:letterSpacing">0</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="cornerRadius">6dp</item>
+        <item name="backgroundTint">@color/bp_login_button_background</item>
+        <item name="android:textColor">@color/bp_login_button_foreground</item>
+        <item name="android:insetTop">0dp</item>
+        <item name="android:insetBottom">0dp</item>
+        <item name="android:minHeight">52dp</item>
+        <item name="android:elevation">0dp</item>
+        <item name="android:stateListAnimator">@null</item>
+        <item name="android:paddingLeft">16dp</item>
+        <item name="android:paddingRight">16dp</item>
+        <item name="android:paddingStart">16dp</item>
+        <item name="android:paddingEnd">16dp</item>
+        <item name="android:paddingTop">0dp</item>
+        <item name="android:paddingBottom">0dp</item>
+        <item name="iconSize">20dp</item>
+        <item name="iconPadding">10dp</item>
+        <item name="iconTint">@color/bp_login_button_foreground</item>
+    </style>
+
+    <style name="Widget.BP.Login.Button.Secondary" parent="Widget.BP.Login.Button">
+        <item name="backgroundTint">@color/bp_login_secondary</item>
+        <item name="strokeWidth">1dp</item>
+        <item name="strokeColor">@color/bp_login_border</item>
+    </style>
+</resources>
