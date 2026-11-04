@@ -22,7 +22,7 @@ public final class AuthApi {
     }
 
     public static void me(String token, ApiCallback<Fighter> callback) {
-        ApiClient.get("/auth/me", token, Fighter.class, callback);
+        ApiClient.get("/fighters/me", token, Fighter.class, callback);
     }
 
     public static void updateProfile(String token, UpdateProfileRequest body,

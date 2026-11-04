@@ -31,6 +31,9 @@ class FighterUpdate(BaseModel):
     weight_kg: float | None = None
     height_cm: float | None = None
     martial_arts: list[str] | None = None
+    wins: int | None = None
+    losses: int | None = None
+    draws: int | None = None
 
 
 class FighterOut(FighterBase):

@@ -1,140 +1,493 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/bp_bg"
-    android:fillViewport="true">
+    android:orientation="vertical">
 
+    <!-- Top App Header (Figma 3:363) -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:padding="20dp">
+        android:minHeight="68dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingStart="20dp"
+        android:paddingTop="12dp"
+        android:paddingEnd="20dp"
+        android:paddingBottom="8dp">
 
-        <TextView
-            android:layout_width="wrap_content"
+        <LinearLayout
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:text="@string/discover_title"
-            android:textColor="@color/bp_text"
-            android:textSize="26sp"
-            android:textStyle="bold" />
+            android:layout_weight="1"
+            android:orientation="vertical">
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="2dp"
-            android:text="@string/tagline"
-            android:textColor="@color/bp_text_muted"
-            android:textSize="13sp" />
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/tvDiscoveryLocation"
+                style="@style/TextAppearance.BP.Login.Label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="SELURUH KOTA · SEMUA KELAS"
+                android:textColor="@color/bp_login_accent"
+                android:textSize="11sp"
+                app:fontFamily="@font/inter_bold"
+                app:lineHeight="13sp" />
 
-        <!-- Fighter card (placeholder data) -->
+            <com.google.android.material.textview.MaterialTextView
+                style="@style/TextAppearance.BP.Login.Title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="2dp"
+                android:text="TEMUKAN LAWANMU"
+                app:lineHeight="29sp" />
+        </LinearLayout>
+
+        <androidx.appcompat.widget.AppCompatImageButton
+            android:id="@+id/btnFilter"
+            android:layout_width="44dp"
+            android:layout_height="44dp"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:contentDescription="Filter Rekomendasi"
+            android:padding="11dp"
+            android:scaleType="fitCenter"
+            app:srcCompat="@drawable/bp_ic_sliders" />
+    </LinearLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:clipToPadding="false"
+        android:fillViewport="true"
+        android:scrollbars="none">
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:background="@drawable/bg_card"
             android:orientation="vertical"
-            android:padding="18dp">
+            android:paddingStart="20dp"
+            android:paddingTop="4dp"
+            android:paddingEnd="20dp"
+            android:paddingBottom="24dp">
 
-            <View
+            <!-- Filter Choices (Figma 3:369) -->
+            <HorizontalScrollView
                 android:layout_width="match_parent"
-                android:layout_height="220dp"
-                android:background="@color/bp_surface2" />
+                android:layout_height="wrap_content"
+                android:scrollbars="none">
 
-            <TextView
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <com.google.android.material.chip.Chip
+                        android:id="@+id/chipFilterSameClass"
+                        style="@style/Widget.BP.Chip.Discipline"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:checked="false"
+                        android:text="Sama Kelas Saja" />
+
+                    <com.google.android.material.chip.Chip
+                        android:id="@+id/chipFilterMMA"
+                        style="@style/Widget.BP.Chip.Discipline"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="8dp"
+                        android:checked="true"
+                        android:text="Aturan MMA" />
+
+                    <com.google.android.material.chip.Chip
+                        android:id="@+id/chipFilterLevel"
+                        style="@style/Widget.BP.Chip.Discipline"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="8dp"
+                        android:checked="false"
+                        android:text="Amatir &amp; Pro" />
+                </LinearLayout>
+            </HorizontalScrollView>
+
+            <!-- Loading Spinner -->
+            <ProgressBar
+                android:id="@+id/progressBarDiscovery"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="14dp"
-                android:text="Dedi “Si Petir”"
-                android:textColor="@color/bp_text"
-                android:textSize="20sp"
-                android:textStyle="bold" />
+                android:layout_gravity="center"
+                android:layout_marginTop="80dp"
+                android:indeterminateTint="@color/bp_blood_bright"
+                android:visibility="gone" />
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="4dp"
-                android:text="Welterweight · MMA"
-                android:textColor="@color/bp_text_muted"
-                android:textSize="14sp" />
-
+            <!-- Empty State -->
             <LinearLayout
+                android:id="@+id/layoutEmpty"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="12dp"
-                android:orientation="horizontal">
+                android:layout_height="380dp"
+                android:layout_marginTop="16dp"
+                android:background="@drawable/bg_card"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:padding="24dp"
+                android:visibility="gone">
 
-                <TextView
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:layout_width="54dp"
+                    android:layout_height="54dp"
+                    android:alpha="0.6"
+                    app:srcCompat="@drawable/ic_nav_discover" />
+
+                <com.google.android.material.textview.MaterialTextView
+                    style="@style/TextAppearance.BP.Login.Title"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:background="@drawable/bg_chip"
-                    android:paddingStart="12dp"
-                    android:paddingEnd="12dp"
-                    android:paddingTop="6dp"
-                    android:paddingBottom="6dp"
-                    android:text="12-3-1"
-                    android:textColor="@color/bp_text"
-                    android:textSize="12sp" />
+                    android:layout_marginTop="16dp"
+                    android:text="Tidak Ada Lawan Baru"
+                    android:textSize="20sp" />
 
-                <TextView
+                <com.google.android.material.textview.MaterialTextView
+                    style="@style/TextAppearance.BP.Login.Muted"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="8dp"
-                    android:background="@drawable/bg_chip"
-                    android:paddingStart="12dp"
-                    android:paddingEnd="12dp"
-                    android:paddingTop="6dp"
-                    android:paddingBottom="6dp"
-                    android:text="2 km"
-                    android:textColor="@color/bp_text"
-                    android:textSize="12sp" />
+                    android:layout_marginTop="6dp"
+                    android:gravity="center"
+                    android:text="Kamu sudah melihat semua rekomendasi lawan yang cocok saat ini."
+                    android:textSize="13sp" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnReload"
+                    style="@style/Widget.BP.Login.Button.Secondary"
+                    android:layout_width="wrap_content"
+                    android:layout_height="44dp"
+                    android:layout_marginTop="18dp"
+                    android:text="Muat Ulang"
+                    android:textSize="13sp" />
             </LinearLayout>
 
-            <TextView
-                android:layout_width="wrap_content"
+            <!-- Swipe Fighter Card Container (Figma 3:376) -->
+            <FrameLayout
+                android:id="@+id/flCardContainer"
+                android:layout_width="match_parent"
+                android:layout_height="440dp"
+                android:layout_marginTop="14dp"
+                android:background="@drawable/bg_card">
+
+                <!-- Opponent Portrait Image -->
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/ivOpponentPortrait"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:importantForAccessibility="no"
+                    android:scaleType="centerCrop"
+                    app:srcCompat="@drawable/bp_welcome_training" />
+
+                <!-- Scrim Dark Overlay Gradient -->
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/bp_card_portrait_scrim"
+                    android:importantForAccessibility="no" />
+
+                <!-- Badges Row Top (Verified + Match Score) -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:paddingStart="16dp"
+                    android:paddingTop="16dp"
+                    android:paddingEnd="16dp">
+
+                    <!-- Verified Badge -->
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/bp_badge_verified"
+                        android:paddingStart="9dp"
+                        android:paddingTop="5dp"
+                        android:paddingEnd="9dp"
+                        android:paddingBottom="5dp">
+
+                        <com.google.android.material.textview.MaterialTextView
+                            style="@style/TextAppearance.BP.Login.Label"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="✓ Profil terverifikasi"
+                            android:textColor="#B8D8BC"
+                            android:textSize="10sp"
+                            app:fontFamily="@font/inter_semibold" />
+                    </LinearLayout>
+
+                    <View
+                        android:layout_width="0dp"
+                        android:layout_height="1dp"
+                        android:layout_weight="1" />
+
+                    <!-- Match Score Badge -->
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/bp_badge_match"
+                        android:paddingStart="9dp"
+                        android:paddingTop="5dp"
+                        android:paddingEnd="9dp"
+                        android:paddingBottom="5dp">
+
+                        <com.google.android.material.textview.MaterialTextView
+                            android:id="@+id/tvMatchScore"
+                            style="@style/TextAppearance.BP.Login.Label"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="92% COCOK"
+                            android:textColor="@color/bp_login_accent"
+                            android:textSize="10sp"
+                            app:fontFamily="@font/inter_semibold" />
+                    </LinearLayout>
+                </LinearLayout>
+
+                <!-- Fighter Information (Bottom of Card) -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="bottom"
+                    android:orientation="vertical"
+                    android:paddingStart="18dp"
+                    android:paddingEnd="18dp"
+                    android:paddingBottom="20dp">
+
+                    <!-- Nickname -->
+                    <com.google.android.material.textview.MaterialTextView
+                        android:id="@+id/tvOpponentNickname"
+                        style="@style/TextAppearance.BP.Login.Label"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="THE HAMMER"
+                        android:textColor="@color/bp_login_accent"
+                        android:textSize="11sp"
+                        app:fontFamily="@font/inter_bold" />
+
+                    <!-- Big Name -->
+                    <com.google.android.material.textview.MaterialTextView
+                        android:id="@+id/tvOpponentName"
+                        style="@style/TextAppearance.BP.Login.Display"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="2dp"
+                        android:ellipsize="end"
+                        android:maxLines="1"
+                        android:text="ARDI SAPUTRA"
+                        android:textSize="36sp"
+                        app:lineHeight="38sp" />
+
+                    <!-- Subline: Age · Martial Arts · Weight Class -->
+                    <com.google.android.material.textview.MaterialTextView
+                        android:id="@+id/tvOpponentMeta"
+                        style="@style/TextAppearance.BP.Login.Body"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="4dp"
+                        android:text="Boxing · Lightweight · MMA"
+                        android:textSize="13sp" />
+
+                    <!-- Location Row -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="6dp"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal">
+
+                        <androidx.appcompat.widget.AppCompatImageView
+                            android:layout_width="14dp"
+                            android:layout_height="14dp"
+                            android:layout_marginEnd="6dp"
+                            android:importantForAccessibility="no"
+                            app:srcCompat="@drawable/bp_ic_map_pin" />
+
+                        <com.google.android.material.textview.MaterialTextView
+                            android:id="@+id/tvOpponentLocation"
+                            style="@style/TextAppearance.BP.Login.Small"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Bandung · Sekitar kotamu"
+                            android:textSize="12sp" />
+                    </LinearLayout>
+
+                    <!-- Stats Badges (Record & Weight) -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:orientation="horizontal">
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/bp_badge_stat"
+                            android:paddingStart="9dp"
+                            android:paddingTop="5dp"
+                            android:paddingEnd="9dp"
+                            android:paddingBottom="5dp">
+
+                            <com.google.android.material.textview.MaterialTextView
+                                android:id="@+id/tvOpponentRecord"
+                                style="@style/TextAppearance.BP.Login.Label"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="5 W / 2 L / 0 D"
+                                android:textColor="@color/bp_login_muted"
+                                android:textSize="11sp"
+                                app:fontFamily="@font/inter_semibold" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="8dp"
+                            android:background="@drawable/bp_badge_stat"
+                            android:paddingStart="9dp"
+                            android:paddingTop="5dp"
+                            android:paddingEnd="9dp"
+                            android:paddingBottom="5dp">
+
+                            <com.google.android.material.textview.MaterialTextView
+                                android:id="@+id/tvOpponentWeight"
+                                style="@style/TextAppearance.BP.Login.Label"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="65 kg · MMA"
+                                android:textColor="@color/bp_login_muted"
+                                android:textSize="11sp"
+                                app:fontFamily="@font/inter_semibold" />
+                        </LinearLayout>
+                    </LinearLayout>
+                </LinearLayout>
+            </FrameLayout>
+
+            <!-- AI Reason Statement (Figma 3:396) -->
+            <LinearLayout
+                android:id="@+id/layoutAiReason"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_gravity="end"
-                android:layout_marginTop="12dp"
-                android:text="92% Match"
-                android:textColor="@color/bp_blood_bright"
-                android:textSize="15sp"
-                android:textStyle="bold" />
+                android:layout_marginTop="14dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:layout_width="18dp"
+                    android:layout_height="18dp"
+                    android:layout_marginEnd="8dp"
+                    android:importantForAccessibility="no"
+                    app:srcCompat="@drawable/bp_ic_sparkles" />
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/tvMatchReasons"
+                    style="@style/TextAppearance.BP.Login.Small"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Berat, disiplin &amp; pengalaman selaras. Skor AI adalah kecocokan, bukan jaminan aman."
+                    android:textColor="@color/bp_login_muted"
+                    android:textSize="11sp"
+                    app:lineHeight="15sp" />
+            </LinearLayout>
+
+            <!-- Swipe Action Buttons (Figma 3:399) -->
+            <LinearLayout
+                android:id="@+id/layoutActionButtons"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <!-- 1. Pass / Lewati -->
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <androidx.appcompat.widget.AppCompatImageButton
+                        android:id="@+id/btnPass"
+                        android:layout_width="62dp"
+                        android:layout_height="62dp"
+                        android:background="@drawable/bp_btn_circle_secondary"
+                        android:contentDescription="Lewati Lawan"
+                        android:padding="18dp"
+                        android:scaleType="fitCenter"
+                        app:srcCompat="@drawable/bp_ic_close" />
+
+                    <com.google.android.material.textview.MaterialTextView
+                        style="@style/TextAppearance.BP.Login.Small"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:text="Lewati"
+                        android:textColor="@color/bp_login_muted"
+                        android:textSize="11sp" />
+                </LinearLayout>
+
+                <!-- 2. Challenge / Tantang (Like - Red Large) -->
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <androidx.appcompat.widget.AppCompatImageButton
+                        android:id="@+id/btnChallenge"
+                        android:layout_width="76dp"
+                        android:layout_height="76dp"
+                        android:background="@drawable/bp_btn_challenge"
+                        android:contentDescription="Tantang Bertanding"
+                        android:padding="20dp"
+                        android:scaleType="fitCenter"
+                        app:srcCompat="@drawable/ic_glove" />
+
+                    <com.google.android.material.textview.MaterialTextView
+                        style="@style/TextAppearance.BP.Login.Label"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:text="Tantang"
+                        android:textColor="@color/bp_login_accent"
+                        android:textSize="12sp"
+                        app:fontFamily="@font/inter_semibold" />
+                </LinearLayout>
+
+                <!-- 3. Profile Detail -->
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <androidx.appcompat.widget.AppCompatImageButton
+                        android:id="@+id/btnViewDetail"
+                        android:layout_width="62dp"
+                        android:layout_height="62dp"
+                        android:background="@drawable/bp_btn_circle_secondary"
+                        android:contentDescription="Lihat Profil Detail"
+                        android:padding="18dp"
+                        android:scaleType="fitCenter"
+                        app:srcCompat="@drawable/bp_ic_search_user" />
+
+                    <com.google.android.material.textview.MaterialTextView
+                        style="@style/TextAppearance.BP.Login.Small"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:text="Detail lengkap"
+                        android:textColor="@color/bp_login_muted"
+                        android:textSize="11sp" />
+                </LinearLayout>
+            </LinearLayout>
+
         </LinearLayout>
-
-        <!-- Action buttons -->
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:gravity="center"
-            android:orientation="horizontal">
-
-            <ImageButton
-                android:id="@+id/btnPass"
-                android:layout_width="64dp"
-                android:layout_height="64dp"
-                android:background="@drawable/bg_circle_surface"
-                android:contentDescription="@string/pass"
-                android:src="@drawable/ic_nav_discover" />
-
-            <ImageButton
-                android:id="@+id/btnLike"
-                android:layout_width="72dp"
-                android:layout_height="72dp"
-                android:layout_marginStart="28dp"
-                android:background="@drawable/bg_circle_blood"
-                android:contentDescription="@string/challenge"
-                android:padding="16dp"
-                android:src="@drawable/ic_glove" />
-        </LinearLayout>
-
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/btnViewDetail"
-            style="@style/Widget.BP.Button.Outline"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:text="@string/view_detail" />
-    </LinearLayout>
-</ScrollView>
+    </ScrollView>
+</LinearLayout>

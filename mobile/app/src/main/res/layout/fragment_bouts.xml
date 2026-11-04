@@ -1,133 +1,541 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/bp_bg">
+    android:background="@color/bp_bg"
+    android:orientation="vertical">
 
+    <!-- App Header (Figma 3:1036) -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:padding="20dp">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Bouts"
-            android:textColor="@color/bp_text"
-            android:textSize="26sp"
-            android:textStyle="bold" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="16dp"
-            android:text="Pelacak status pertandinganmu"
-            android:textColor="@color/bp_text_muted"
-            android:textSize="13sp" />
+        android:minHeight="68dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingStart="20dp"
+        android:paddingTop="12dp"
+        android:paddingEnd="20dp"
+        android:paddingBottom="8dp">
 
         <LinearLayout
-            android:layout_width="match_parent"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="12dp"
-            android:background="@drawable/bg_card"
-            android:orientation="vertical"
-            android:padding="16dp">
+            android:layout_weight="1"
+            android:orientation="vertical">
 
-            <LinearLayout
+            <com.google.android.material.textview.MaterialTextView
+                style="@style/TextAppearance.BP.Login.Label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="BP-2410-018 · PERJALANAN RESMI"
+                android:textColor="@color/bp_login_accent"
+                android:textSize="11sp"
+                app:fontFamily="@font/inter_bold" />
+
+            <com.google.android.material.textview.MaterialTextView
+                style="@style/TextAppearance.BP.Login.Title"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="Rambo Sitorus vs Dedi “Si Petir”"
-                    android:textColor="@color/bp_text"
-                    android:textSize="15sp"
-                    android:textStyle="bold" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Awaiting Verification"
-                    android:textColor="@color/bp_warning"
-                    android:textSize="12sp"
-                    android:textStyle="bold" />
-            </LinearLayout>
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="6dp"
-                android:text="Jl. Sudirman, Bandung · 20 Okt 19:00"
-                android:textColor="@color/bp_text_muted"
-                android:textSize="13sp" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="6dp"
-                android:text="Deposit: Rp 500.000"
-                android:textColor="@color/bp_text"
-                android:textSize="13sp" />
+                android:layout_marginTop="2dp"
+                android:text="STATUS BOUT &amp; JADWAL"
+                android:textSize="28sp"
+                app:lineHeight="30sp" />
         </LinearLayout>
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="12dp"
-            android:background="@drawable/bg_card"
-            android:orientation="vertical"
-            android:padding="16dp">
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="Fajar Nugroho vs Reza Hidayat"
-                    android:textColor="@color/bp_text"
-                    android:textSize="15sp"
-                    android:textStyle="bold" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Confirmed"
-                    android:textColor="@color/bp_success"
-                    android:textSize="12sp"
-                    android:textStyle="bold" />
-            </LinearLayout>
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="6dp"
-                android:text="Dojo Merah, Yogyakarta · 16 Okt 17:00"
-                android:textColor="@color/bp_text_muted"
-                android:textSize="13sp" />
-
-            <com.google.android.material.button.MaterialButton
-                android:id="@+id/btnSubmitResult"
-                style="@style/Widget.BP.Button"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="12dp"
-                android:text="@string/submit_result" />
-        </LinearLayout>
-
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/btnTrackBout"
-            style="@style/Widget.BP.Button.Outline"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="4dp"
-            android:text="Lihat Pelacak Status" />
+        <androidx.appcompat.widget.AppCompatImageButton
+            android:id="@+id/btnBoutMore"
+            android:layout_width="44dp"
+            android:layout_height="44dp"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:contentDescription="Menu Bout"
+            android:padding="11dp"
+            android:scaleType="fitCenter"
+            app:srcCompat="@drawable/bp_login_more" />
     </LinearLayout>
-</ScrollView>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:clipToPadding="false"
+        android:fillViewport="true"
+        android:scrollbars="none">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingStart="20dp"
+            android:paddingTop="8dp"
+            android:paddingEnd="20dp"
+            android:paddingBottom="32dp">
+
+            <!-- Filter Switcher: Laga Aktif vs Riwayat Selesai -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/tabUpcoming"
+                    style="@style/TextAppearance.BP.Login.Body"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="6dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/bp_btn_circle_secondary"
+                    android:backgroundTint="@color/bp_blood"
+                    android:gravity="center"
+                    android:paddingTop="9dp"
+                    android:paddingBottom="9dp"
+                    android:text="Laga Aktif 1"
+                    android:textColor="@color/bp_white"
+                    android:textSize="12sp"
+                    app:fontFamily="@font/inter_semibold" />
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/tabCompleted"
+                    style="@style/TextAppearance.BP.Login.Body"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="6dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/bg_card"
+                    android:gravity="center"
+                    android:paddingTop="9dp"
+                    android:paddingBottom="9dp"
+                    android:text="Riwayat Selesai 1"
+                    android:textColor="@color/bp_login_muted"
+                    android:textSize="12sp"
+                    app:fontFamily="@font/inter_semibold" />
+            </LinearLayout>
+
+            <!-- Container 1: LAGA AKTIF (Figma 3:1040) -->
+            <LinearLayout
+                android:id="@+id/containerUpcoming"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <!-- Main Bout Card -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:background="@drawable/bg_card"
+                    android:orientation="vertical"
+                    android:padding="16dp">
+
+                    <!-- Status Header -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal">
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/bp_badge_verified"
+                            android:paddingStart="9dp"
+                            android:paddingTop="5dp"
+                            android:paddingEnd="9dp"
+                            android:paddingBottom="5dp">
+
+                            <com.google.android.material.textview.MaterialTextView
+                                style="@style/TextAppearance.BP.Login.Label"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="CONFIRMED"
+                                android:textColor="#B8D8BC"
+                                android:textSize="10sp"
+                                app:fontFamily="@font/inter_semibold" />
+                        </LinearLayout>
+
+                        <com.google.android.material.textview.MaterialTextView
+                            style="@style/TextAppearance.BP.Login.Small"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="10dp"
+                            android:layout_weight="1"
+                            android:text="Admin: Nadia Aulia"
+                            android:textSize="11sp" />
+                    </LinearLayout>
+
+                    <!-- Big Date & Time -->
+                    <com.google.android.material.textview.MaterialTextView
+                        style="@style/TextAppearance.BP.Login.Display"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="12dp"
+                        android:text="24 OKTOBER"
+                        android:textSize="36sp"
+                        app:lineHeight="38sp" />
+
+                    <com.google.android.material.textview.MaterialTextView
+                        style="@style/TextAppearance.BP.Login.Body"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="4dp"
+                        android:text="Sabtu · 16.00 WIB · Datang 15.30"
+                        app:fontFamily="@font/inter_semibold" />
+
+                    <!-- Opponent Row -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="14dp"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal">
+
+                        <FrameLayout
+                            android:layout_width="52dp"
+                            android:layout_height="56dp"
+                            android:background="@drawable/bp_card_portrait_placeholder">
+
+                            <androidx.appcompat.widget.AppCompatImageView
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:importantForAccessibility="no"
+                                android:scaleType="centerCrop"
+                                app:srcCompat="@drawable/bp_welcome_training" />
+                        </FrameLayout>
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="12dp"
+                            android:layout_weight="1"
+                            android:orientation="vertical">
+
+                            <com.google.android.material.textview.MaterialTextView
+                                style="@style/TextAppearance.BP.Login.Body"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="Ardi “The Hammer”"
+                                android:textSize="14sp"
+                                app:fontFamily="@font/inter_semibold" />
+
+                            <com.google.android.material.textview.MaterialTextView
+                                style="@style/TextAppearance.BP.Login.Small"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="2dp"
+                                android:text="Boxing · 64,5 kg · Bandung"
+                                android:textSize="11sp" />
+                        </LinearLayout>
+                    </LinearLayout>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_marginTop="14dp"
+                        android:layout_marginBottom="12dp"
+                        android:background="@color/bp_border" />
+
+                    <!-- Weight comparison -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal">
+
+                        <com.google.android.material.textview.MaterialTextView
+                            style="@style/TextAppearance.BP.Login.Small"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="Kamu / lawan" />
+
+                        <com.google.android.material.textview.MaterialTextView
+                            style="@style/TextAppearance.BP.Login.Body"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="64,0 kg / 64,5 kg"
+                            app:fontFamily="@font/inter_semibold" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal">
+
+                        <com.google.android.material.textview.MaterialTextView
+                            style="@style/TextAppearance.BP.Login.Small"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="Target timbang" />
+
+                        <com.google.android.material.textview.MaterialTextView
+                            style="@style/TextAppearance.BP.Login.Body"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Maks. 65,0 kg"
+                            app:fontFamily="@font/inter_semibold" />
+                    </LinearLayout>
+                </LinearLayout>
+
+                <!-- Venue Info (Figma 3:1063) -->
+                <com.google.android.material.textview.MaterialTextView
+                    style="@style/TextAppearance.BP.Login.Title"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:text="GARUDA BOXING BANDUNG"
+                    android:textSize="22sp" />
+
+                <com.google.android.material.textview.MaterialTextView
+                    style="@style/TextAppearance.BP.Login.Small"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="2dp"
+                    android:text="Jl. Soekarno-Hatta 218, Bandung\nCoach Dimas Putra · Pelatih pendamping"
+                    android:textSize="12sp"
+                    app:lineHeight="18sp" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnViewGymRoute"
+                    style="@style/Widget.BP.Login.Button.Secondary"
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:layout_marginTop="10dp"
+                    android:text="Lihat rute ke gym"
+                    app:icon="@drawable/bp_ic_map_pin"
+                    app:iconGravity="textStart" />
+
+                <!-- Rule Set Card (Figma 3:1068) -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:background="@drawable/bg_card"
+                    android:orientation="vertical"
+                    android:padding="16dp">
+
+                    <com.google.android.material.textview.MaterialTextView
+                        style="@style/TextAppearance.BP.Login.Title"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="RULE SET"
+                        android:textSize="20sp" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="12dp"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal">
+
+                        <com.google.android.material.textview.MaterialTextView
+                            style="@style/TextAppearance.BP.Login.Small"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="Disiplin" />
+
+                        <com.google.android.material.textview.MaterialTextView
+                            style="@style/TextAppearance.BP.Login.Body"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Amateur boxing"
+                            app:fontFamily="@font/inter_semibold" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal">
+
+                        <com.google.android.material.textview.MaterialTextView
+                            style="@style/TextAppearance.BP.Login.Small"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="Durasi" />
+
+                        <com.google.android.material.textview.MaterialTextView
+                            style="@style/TextAppearance.BP.Login.Body"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="3 ronde × 2 menit"
+                            app:fontFamily="@font/inter_semibold" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal">
+
+                        <com.google.android.material.textview.MaterialTextView
+                            style="@style/TextAppearance.BP.Login.Small"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="Perlengkapan" />
+
+                        <com.google.android.material.textview.MaterialTextView
+                            style="@style/TextAppearance.BP.Login.Body"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="16 oz · headguard"
+                            app:fontFamily="@font/inter_semibold" />
+                    </LinearLayout>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_marginTop="12dp"
+                        android:layout_marginBottom="10dp"
+                        android:background="@color/bp_border" />
+
+                    <com.google.android.material.textview.MaterialTextView
+                        style="@style/TextAppearance.BP.Login.Small"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Timbang badan dan pemeriksaan kesiapan dilakukan sebelum masuk ring. Pelatih berhak menghentikan bout."
+                        android:textColor="@color/bp_login_muted"
+                        android:textSize="11sp" />
+                </LinearLayout>
+
+                <!-- Escrow status row (Figma 3:1083) -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="14dp"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:layout_width="18dp"
+                        android:layout_height="18dp"
+                        android:layout_marginEnd="8dp"
+                        android:importantForAccessibility="no"
+                        app:srcCompat="@drawable/bp_welcome_shield" />
+
+                    <com.google.android.material.textview.MaterialTextView
+                        style="@style/TextAppearance.BP.Login.Body"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="2 deposit terverifikasi · Rp300.000 ditahan aman"
+                        android:textColor="#B8D8BC"
+                        android:textSize="12sp"
+                        app:fontFamily="@font/inter_semibold" />
+                </LinearLayout>
+
+                <!-- Action 1: Open Tracker -->
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnTrackBout"
+                    style="@style/Widget.BP.Login.Button"
+                    android:layout_width="match_parent"
+                    android:layout_height="52dp"
+                    android:layout_marginTop="16dp"
+                    android:text="Lihat Alur Tracker Status Laga" />
+
+                <!-- Action 2: Chat Opponent -->
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnChatOpponent"
+                    style="@style/Widget.BP.Login.Button.Secondary"
+                    android:layout_width="match_parent"
+                    android:layout_height="52dp"
+                    android:layout_marginTop="10dp"
+                    android:text="Chat Lawan &amp; Koordinasi" />
+
+                <!-- Action 3: Submit Result -->
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnSubmitResult"
+                    style="@style/Widget.BP.Login.Button.Secondary"
+                    android:layout_width="match_parent"
+                    android:layout_height="52dp"
+                    android:layout_marginTop="10dp"
+                    android:text="Kirim / Input Hasil Pertandingan"
+                    android:textColor="@color/bp_login_accent"
+                    app:strokeColor="@color/bp_login_accent" />
+            </LinearLayout>
+
+            <!-- Container 2: RIWAYAT SELESAI -->
+            <LinearLayout
+                android:id="@+id/containerCompleted"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:visibility="gone">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:background="@drawable/bg_card"
+                    android:orientation="vertical"
+                    android:padding="16dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal">
+
+                        <com.google.android.material.textview.MaterialTextView
+                            style="@style/TextAppearance.BP.Login.Body"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="vs. Fajar Ramadhan"
+                            android:textSize="15sp"
+                            app:fontFamily="@font/inter_semibold" />
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/bp_badge_verified"
+                            android:paddingStart="8dp"
+                            android:paddingTop="4dp"
+                            android:paddingEnd="8dp"
+                            android:paddingBottom="4dp">
+
+                            <com.google.android.material.textview.MaterialTextView
+                                style="@style/TextAppearance.BP.Login.Label"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="WIN · UD"
+                                android:textColor="#B8D8BC"
+                                android:textSize="10sp"
+                                app:fontFamily="@font/inter_semibold" />
+                        </LinearLayout>
+                    </LinearLayout>
+
+                    <com.google.android.material.textview.MaterialTextView
+                        style="@style/TextAppearance.BP.Login.Small"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="4dp"
+                        android:text="12 Sep 2026 · Garuda Boxing · 3 × 2 menit"
+                        android:textSize="11sp" />
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_marginTop="12dp"
+                        android:layout_marginBottom="10dp"
+                        android:background="@color/bp_border" />
+
+                    <com.google.android.material.textview.MaterialTextView
+                        style="@style/TextAppearance.BP.Login.Small"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Jaminan Escrow: Rp150.000 · Dikembalikan ke saldo akun"
+                        android:textColor="@color/bp_login_muted"
+                        android:textSize="12sp" />
+                </LinearLayout>
+            </LinearLayout>
+
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

@@ -70,9 +70,24 @@
         <item name="iconTint">@color/bp_login_button_foreground</item>
     </style>
 
+    <style name="Widget.BP.Login.Button.Primary" parent="Widget.BP.Login.Button" />
+
     <style name="Widget.BP.Login.Button.Secondary" parent="Widget.BP.Login.Button">
         <item name="backgroundTint">@color/bp_login_secondary</item>
         <item name="strokeWidth">1dp</item>
         <item name="strokeColor">@color/bp_login_border</item>
+    </style>
+
+    <style name="Widget.BP.Chip.Discipline" parent="Widget.Material3.Chip.Filter">
+        <item name="android:checkable">true</item>
+        <item name="chipCornerRadius">6dp</item>
+        <item name="chipBackgroundColor">@color/bp_chip_background_selector</item>
+        <item name="chipStrokeColor">@color/bp_chip_stroke_selector</item>
+        <item name="chipStrokeWidth">1dp</item>
+        <item name="android:textColor">@color/bp_chip_text_selector</item>
+        <item name="fontFamily">@font/inter_semibold</item>
+        <item name="android:fontFamily">@font/inter_semibold</item>
+        <item name="android:textSize">12sp</item>
+        <item name="checkedIconVisible">false</item>
     </style>
 </resources>

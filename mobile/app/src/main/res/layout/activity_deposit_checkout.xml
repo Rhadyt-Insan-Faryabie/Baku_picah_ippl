@@ -1,111 +1,237 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/bp_bg">
+    android:background="@color/bp_bg"
+    android:orientation="vertical">
 
+    <!-- App Header with Back Button (Figma 3:808) -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:padding="20dp">
+        android:minHeight="68dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingStart="16dp"
+        android:paddingTop="12dp"
+        android:paddingEnd="16dp"
+        android:paddingBottom="8dp">
 
-        <TextView
-            android:layout_width="wrap_content"
+        <androidx.appcompat.widget.AppCompatImageButton
+            android:id="@+id/btnBackDeposit"
+            android:layout_width="44dp"
+            android:layout_height="44dp"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:contentDescription="Kembali"
+            android:padding="11dp"
+            android:scaleType="fitCenter"
+            app:srcCompat="@drawable/bp_login_arrow_left" />
+
+        <LinearLayout
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:text="@string/deposit_title"
-            android:textColor="@color/bp_text"
-            android:textSize="24sp"
-            android:textStyle="bold" />
+            android:layout_marginStart="8dp"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <com.google.android.material.textview.MaterialTextView
+                style="@style/TextAppearance.BP.Login.Label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="ESCROW RESMI · JAMINAN KOMITMEN"
+                android:textColor="@color/bp_login_accent"
+                android:textSize="11sp"
+                app:fontFamily="@font/inter_bold" />
+
+            <com.google.android.material.textview.MaterialTextView
+                style="@style/TextAppearance.BP.Login.Title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="2dp"
+                android:text="Checkout Deposit"
+                android:textSize="26sp"
+                app:lineHeight="28sp" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/bp_border" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:clipToPadding="false"
+        android:fillViewport="true"
+        android:scrollbars="none">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="18dp"
-            android:background="@drawable/bg_card"
             android:orientation="vertical"
-            android:padding="16dp">
+            android:paddingStart="20dp"
+            android:paddingTop="14dp"
+            android:paddingEnd="20dp"
+            android:paddingBottom="32dp">
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Rincian Pembayaran"
-                android:textColor="@color/bp_text"
-                android:textSize="16sp"
-                android:textStyle="bold" />
-
-            <TextView
+            <!-- Detail Biaya Card -->
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:text="Deposit escrow: Rp 500.000\nBiaya layanan: Rp 25.000"
-                android:textColor="@color/bp_text_muted"
-                android:textSize="14sp" />
+                android:background="@drawable/bg_card"
+                android:orientation="vertical"
+                android:padding="16dp">
 
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:layout_marginTop="10dp"
-                android:layout_marginBottom="10dp"
-                android:background="@color/bp_border" />
+                <com.google.android.material.textview.MaterialTextView
+                    style="@style/TextAppearance.BP.Login.Title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Rincian Pembayaran"
+                    android:textSize="18sp" />
 
-            <TextView
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <com.google.android.material.textview.MaterialTextView
+                        style="@style/TextAppearance.BP.Login.Small"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Deposit Escrow Petarung" />
+
+                    <com.google.android.material.textview.MaterialTextView
+                        style="@style/TextAppearance.BP.Login.Body"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Rp150.000"
+                        app:fontFamily="@font/inter_semibold" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <com.google.android.material.textview.MaterialTextView
+                        style="@style/TextAppearance.BP.Login.Small"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Biaya Pemeliharaan Sistem" />
+
+                    <com.google.android.material.textview.MaterialTextView
+                        style="@style/TextAppearance.BP.Login.Body"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Rp10.000"
+                        app:fontFamily="@font/inter_semibold" />
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginTop="12dp"
+                    android:layout_marginBottom="12dp"
+                    android:background="@color/bp_border" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <com.google.android.material.textview.MaterialTextView
+                        style="@style/TextAppearance.BP.Login.Body"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Total Pembayaran"
+                        app:fontFamily="@font/inter_semibold" />
+
+                    <com.google.android.material.textview.MaterialTextView
+                        style="@style/TextAppearance.BP.Login.Title"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Rp160.000"
+                        android:textColor="@color/bp_login_accent"
+                        android:textSize="22sp" />
+                </LinearLayout>
+
+                <com.google.android.material.textview.MaterialTextView
+                    style="@style/TextAppearance.BP.Login.Small"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:text="*Uang jaminan Rp150.000 akan otomatis dikembalikan ke saldo akunmu setelah laga tanding diselesaikan."
+                    android:textColor="@color/bp_login_muted"
+                    android:textSize="10sp" />
+            </LinearLayout>
+
+            <!-- Metode Pembayaran -->
+            <com.google.android.material.textview.MaterialTextView
+                style="@style/TextAppearance.BP.Login.Body"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Total: Rp 525.000"
-                android:textColor="@color/bp_text"
-                android:textSize="16sp"
-                android:textStyle="bold" />
+                android:layout_marginTop="20dp"
+                android:text="Pilih Metode Pembayaran"
+                app:fontFamily="@font/inter_semibold" />
+
+            <RadioGroup
+                android:id="@+id/rgMethod"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:background="@drawable/bg_card"
+                android:padding="12dp">
+
+                <RadioButton
+                    android:id="@+id/rbQris"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:buttonTint="@color/bp_blood"
+                    android:checked="true"
+                    android:text="QRIS (GoPay, OVO, Dana, ShopeePay)"
+                    android:textColor="@color/bp_login_text" />
+
+                <RadioButton
+                    android:id="@+id/rbTransfer"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="6dp"
+                    android:buttonTint="@color/bp_blood"
+                    android:text="Virtual Account / Transfer Bank"
+                    android:textColor="@color/bp_login_text" />
+            </RadioGroup>
+
+            <!-- Upload Bukti Bayar Button -->
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnUploadProof"
+                style="@style/Widget.BP.Login.Button.Secondary"
+                android:layout_width="match_parent"
+                android:layout_height="52dp"
+                android:layout_marginTop="16dp"
+                android:text="Unggah Bukti Bayar Transfer"
+                app:icon="@drawable/bp_ic_camera"
+                app:iconGravity="textStart" />
+
+            <!-- Pay Deposit Button -->
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnPay"
+                style="@style/Widget.BP.Login.Button"
+                android:layout_width="match_parent"
+                android:layout_height="52dp"
+                android:layout_marginTop="12dp"
+                android:text="Konfirmasi &amp; Bayar Deposit" />
+
         </LinearLayout>
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="18dp"
-            android:text="Metode Pembayaran"
-            android:textColor="@color/bp_text"
-            android:textSize="14sp" />
-
-        <RadioGroup
-            android:id="@+id/rgMethod"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:background="@drawable/bg_card"
-            android:padding="14dp">
-
-            <RadioButton
-                android:id="@+id/rbTransfer"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:buttonTint="@color/bp_blood_bright"
-                android:checked="true"
-                android:text="Transfer Bank"
-                android:textColor="@color/bp_text" />
-
-            <RadioButton
-                android:id="@+id/rbEwallet"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:buttonTint="@color/bp_blood_bright"
-                android:text="E-Wallet"
-                android:textColor="@color/bp_text" />
-        </RadioGroup>
-
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/btnUploadProof"
-            style="@style/Widget.BP.Button.Outline"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:text="Unggah Bukti Bayar" />
-
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/btnPay"
-            style="@style/Widget.BP.Button"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="18dp"
-            android:text="Bayar Deposit" />
-    </LinearLayout>
-</ScrollView>
+    </ScrollView>
+</LinearLayout>

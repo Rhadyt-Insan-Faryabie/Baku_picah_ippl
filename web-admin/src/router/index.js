@@ -13,23 +13,47 @@ const routes = [
     component: AdminLayout,
     children: [
       { path: '', redirect: { name: 'dashboard' } },
-      { path: 'dashboard', name: 'dashboard', component: () => import('../views/Dashboard.vue') },
       {
-        path: 'verification',
-        name: 'verification',
+        path: 'dashboard',
+        name: 'dashboard',
+        component: () => import('../views/Dashboard.vue'),
+      },
+      {
+        path: 'fighters',
+        name: 'fighters',
+        component: () => import('../views/FighterVerification.vue'),
+      },
+      {
+        path: 'bouts',
+        name: 'bouts',
         component: () => import('../views/BoutVerification.vue'),
+      },
+      {
+        path: 'escrow',
+        name: 'escrow',
+        component: () => import('../views/DepositEscrow.vue'),
       },
       {
         path: 'arbitration',
         name: 'arbitration',
         component: () => import('../views/ResultArbitration.vue'),
       },
+      // Aliases & legacy routes
+      {
+        path: 'verification',
+        name: 'verification',
+        redirect: { name: 'bouts' },
+      },
       {
         path: 'master-data',
         name: 'master-data',
         component: () => import('../views/MasterData.vue'),
       },
-      { path: 'moderation', name: 'moderation', component: () => import('../views/Moderation.vue') },
+      {
+        path: 'moderation',
+        name: 'moderation',
+        component: () => import('../views/Moderation.vue'),
+      },
     ],
   },
   { path: '/:pathMatch(.*)*', redirect: { name: 'dashboard' } },

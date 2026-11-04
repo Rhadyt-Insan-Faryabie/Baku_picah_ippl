@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Step 1 -->
+    <string name="setup_step1_eyebrow">LANGKAH 1 DARI 2</string>
+    <string name="setup_step1_title">Identitas fighter</string>
+    <string name="setup_photo_eyebrow">WAJAH DI BALIK AMBISI</string>
+    <string name="setup_photo_hint">Foto wajah jelas. Tanpa filter berlebihan.</string>
+    <string name="setup_photo_action">Unggah foto</string>
+    <string name="setup_fullname_label">Nama lengkap</string>
+    <string name="setup_nickname_label">Nickname / Nama Panggung</string>
+    <string name="setup_birthdate_label">Tanggal lahir</string>
+    <string name="setup_age_label">Usia</string>
+    <string name="setup_height_label">Tinggi badan (cm)</string>
+    <string name="setup_weight_label">Berat badan (kg)</string>
+    <string name="setup_weight_class_label">Kelas berat (otomatis)</string>
+    <string name="setup_weight_class_hint">Berat timbang aktual dicek sebelum bout.</string>
+    <string name="setup_city_label">Kota domisili</string>
+    <string name="setup_step1_guidance">Data berat dan usia membantu kecocokan. Admin tetap memeriksa kelayakan dan persetujuan kedua fighter.</string>
+    <string name="setup_step1_next">Lanjut ke profil olahraga</string>
+
+    <!-- Step 2 -->
+    <string name="setup_step2_eyebrow">LANGKAH 2 DARI 2</string>
+    <string name="setup_step2_title">Gaya bertarungmu</string>
+    <string name="setup_discipline_label">Disiplin utama (pilih bela diri)</string>
+    <string name="setup_experience_label">Pengalaman</string>
+    <string name="setup_stance_label">Stance bertarung</string>
+    <string name="setup_record_eyebrow">REKOR AMATIR / SPARRING</string>
+    <string name="setup_win_label">Win</string>
+    <string name="setup_loss_label">Loss</string>
+    <string name="setup_draw_label">Draw</string>
+    <string name="setup_gym_label">Gym / sasana</string>
+    <string name="setup_coach_label">Pelatih pendamping</string>
+    <string name="setup_bio_label">Bio singkat</string>
+    <string name="setup_agreement">Saya bersedia mengikuti aturan gym, memakai pelindung, dan menghormati keputusan pelatih.</string>
+    <string name="setup_step2_guidance">Profil ditinjau admin sebelum bout. Rekor awal berdasarkan deklarasi; hasil baru membutuhkan bukti.</string>
+    <string name="setup_save_action">Simpan &amp; temukan fighter</string>
+</resources>

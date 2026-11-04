@@ -1,92 +1,706 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/bp_bg">
+    android:background="@color/bp_bg"
+    android:orientation="vertical">
 
+    <!-- App Header (Figma 3:434) -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:padding="20dp">
+        android:minHeight="68dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingStart="16dp"
+        android:paddingTop="12dp"
+        android:paddingEnd="16dp"
+        android:paddingBottom="8dp">
 
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="240dp"
-            android:background="@drawable/bg_card" />
+        <androidx.appcompat.widget.AppCompatImageButton
+            android:id="@+id/btnBack"
+            android:layout_width="44dp"
+            android:layout_height="44dp"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:contentDescription="Kembali"
+            android:padding="11dp"
+            android:scaleType="fitCenter"
+            app:srcCompat="@drawable/bp_login_arrow_left" />
 
-        <TextView
-            android:id="@+id/tvName"
-            android:layout_width="wrap_content"
+        <LinearLayout
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:text="Dedi “Si Petir”"
-            android:textColor="@color/bp_text"
-            android:textSize="24sp"
-            android:textStyle="bold" />
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_weight="1"
+            android:orientation="vertical">
 
-        <TextView
-            android:id="@+id/tvMeta"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Welterweight · MMA · Kediri"
-            android:textColor="@color/bp_text_muted"
-            android:textSize="14sp" />
+            <com.google.android.material.textview.MaterialTextView
+                style="@style/TextAppearance.BP.Login.Label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="LAWAN POTENSIAL"
+                android:textColor="@color/bp_login_accent"
+                android:textSize="11sp"
+                app:fontFamily="@font/inter_bold" />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:text="Bio"
-            android:textColor="@color/bp_text"
-            android:textSize="16sp"
-            android:textStyle="bold" />
+            <com.google.android.material.textview.MaterialTextView
+                style="@style/TextAppearance.BP.Login.Title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="2dp"
+                android:text="Profil fighter"
+                android:textSize="26sp"
+                app:lineHeight="28sp" />
+        </LinearLayout>
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="6dp"
-            android:background="@drawable/bg_card"
-            android:padding="14dp"
-            android:text="Petarung orthodox, 5 tahun pengalaman amatir. Suka pertukaran jarak dekat dan tekanan ke depan."
-            android:textColor="@color/bp_text_muted"
-            android:textSize="14sp" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:text="Riwayat Tanding"
-            android:textColor="@color/bp_text"
-            android:textSize="16sp"
-            android:textStyle="bold" />
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="6dp"
-            android:background="@drawable/bg_card"
-            android:padding="14dp"
-            android:text="Menang vs A. Pratama (TKO R3)\nMenang vs B. Wijaya (Decision)\nKalah vs K. Mahesa (Split Decision)"
-            android:textColor="@color/bp_text_muted"
-            android:textSize="14sp" />
-
-        <TextView
-            android:id="@+id/tvHighlight"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:text="Lihat Highlight Video →"
-            android:textColor="@color/bp_blood_bright"
-            android:textSize="14sp" />
-
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/btnChallenge"
-            style="@style/Widget.BP.Button"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:text="@string/challenge" />
+        <androidx.appcompat.widget.AppCompatImageButton
+            android:id="@+id/btnFlag"
+            android:layout_width="44dp"
+            android:layout_height="44dp"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:contentDescription="Laporkan profil"
+            android:padding="11dp"
+            android:scaleType="fitCenter"
+            app:srcCompat="@drawable/bp_ic_flag" />
     </LinearLayout>
-</ScrollView>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:clipToPadding="false"
+        android:fillViewport="true"
+        android:scrollbars="none">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingStart="20dp"
+            android:paddingTop="8dp"
+            android:paddingEnd="20dp"
+            android:paddingBottom="32dp">
+
+            <!-- Fighter Portrait (Figma 3:441) -->
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="300dp"
+                android:background="@drawable/bp_card_portrait_placeholder">
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/ivPortrait"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:importantForAccessibility="no"
+                    android:scaleType="centerCrop"
+                    app:srcCompat="@drawable/bp_welcome_training" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/bp_card_portrait_scrim"
+                    android:importantForAccessibility="no" />
+            </FrameLayout>
+
+            <!-- Nickname & Verified Badge Row (Figma 3:442) -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/tvNickname"
+                    style="@style/TextAppearance.BP.Login.Label"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="THE HAMMER"
+                    android:textColor="@color/bp_login_accent"
+                    android:textSize="11sp"
+                    app:fontFamily="@font/inter_bold" />
+
+                <View
+                    android:layout_width="0dp"
+                    android:layout_height="1dp"
+                    android:layout_weight="1" />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/bp_badge_verified"
+                    android:paddingStart="9dp"
+                    android:paddingTop="5dp"
+                    android:paddingEnd="9dp"
+                    android:paddingBottom="5dp">
+
+                    <com.google.android.material.textview.MaterialTextView
+                        android:id="@+id/tvVerifiedBadge"
+                        style="@style/TextAppearance.BP.Login.Label"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="✓ Terverifikasi"
+                        android:textColor="#B8D8BC"
+                        android:textSize="10sp"
+                        app:fontFamily="@font/inter_semibold" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <!-- Big Fighter Name (Figma 3:446) -->
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/tvName"
+                style="@style/TextAppearance.BP.Login.Display"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:text="ARDI SAPUTRA"
+                android:textSize="38sp"
+                app:lineHeight="40sp" />
+
+            <!-- Subtitle: Age · City · Distance (Figma 3:447) -->
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/tvSubtitle"
+                style="@style/TextAppearance.BP.Login.Muted"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:text="26 tahun · Bandung · 3,2 km"
+                android:textSize="12sp" />
+
+            <!-- Statistics 3-block row (Figma 3:448) -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:orientation="horizontal">
+
+                <!-- WIN -->
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="5dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/bp_login_input"
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    android:paddingTop="12dp"
+                    android:paddingBottom="12dp">
+
+                    <com.google.android.material.textview.MaterialTextView
+                        android:id="@+id/tvWins"
+                        style="@style/TextAppearance.BP.Login.Display"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="5"
+                        android:textSize="28sp" />
+
+                    <com.google.android.material.textview.MaterialTextView
+                        style="@style/TextAppearance.BP.Login.Small"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="2dp"
+                        android:text="WIN"
+                        android:textColor="@color/bp_login_muted"
+                        android:textSize="10sp" />
+                </LinearLayout>
+
+                <!-- LOSS -->
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="3dp"
+                    android:layout_marginEnd="3dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/bp_login_input"
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    android:paddingTop="12dp"
+                    android:paddingBottom="12dp">
+
+                    <com.google.android.material.textview.MaterialTextView
+                        android:id="@+id/tvLosses"
+                        style="@style/TextAppearance.BP.Login.Display"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="2"
+                        android:textSize="28sp" />
+
+                    <com.google.android.material.textview.MaterialTextView
+                        style="@style/TextAppearance.BP.Login.Small"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="2dp"
+                        android:text="LOSS"
+                        android:textColor="@color/bp_login_muted"
+                        android:textSize="10sp" />
+                </LinearLayout>
+
+                <!-- DRAW -->
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="5dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/bp_login_input"
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    android:paddingTop="12dp"
+                    android:paddingBottom="12dp">
+
+                    <com.google.android.material.textview.MaterialTextView
+                        android:id="@+id/tvDraws"
+                        style="@style/TextAppearance.BP.Login.Display"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="0"
+                        android:textSize="28sp" />
+
+                    <com.google.android.material.textview.MaterialTextView
+                        style="@style/TextAppearance.BP.Login.Small"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="2dp"
+                        android:text="DRAW"
+                        android:textColor="@color/bp_login_muted"
+                        android:textSize="10sp" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <!-- Technical & Physical Specs Card (Figma 3:458) -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:background="@drawable/bg_card"
+                android:orientation="vertical"
+                android:padding="16dp">
+
+                <!-- Disiplin / Kelas -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <com.google.android.material.textview.MaterialTextView
+                        style="@style/TextAppearance.BP.Login.Small"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Disiplin / kelas" />
+
+                    <com.google.android.material.textview.MaterialTextView
+                        android:id="@+id/tvDiscipline"
+                        style="@style/TextAppearance.BP.Login.Body"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Boxing / Lightweight"
+                        app:fontFamily="@font/inter_semibold" />
+                </LinearLayout>
+
+                <!-- Berat / Tinggi -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <com.google.android.material.textview.MaterialTextView
+                        style="@style/TextAppearance.BP.Login.Small"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Berat / tinggi" />
+
+                    <com.google.android.material.textview.MaterialTextView
+                        android:id="@+id/tvWeightHeight"
+                        style="@style/TextAppearance.BP.Login.Body"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="64,5 kg / 174 cm"
+                        app:fontFamily="@font/inter_semibold" />
+                </LinearLayout>
+
+                <!-- Stance / Pengalaman -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <com.google.android.material.textview.MaterialTextView
+                        style="@style/TextAppearance.BP.Login.Small"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Stance / pengalaman" />
+
+                    <com.google.android.material.textview.MaterialTextView
+                        android:id="@+id/tvStanceExp"
+                        style="@style/TextAppearance.BP.Login.Body"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Orthodox / 2 tahun"
+                        app:fontFamily="@font/inter_semibold" />
+                </LinearLayout>
+
+                <!-- Sasana / Gym -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <com.google.android.material.textview.MaterialTextView
+                        style="@style/TextAppearance.BP.Login.Small"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Sasana" />
+
+                    <com.google.android.material.textview.MaterialTextView
+                        android:id="@+id/tvGym"
+                        style="@style/TextAppearance.BP.Login.Body"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Rajawali Fight Camp"
+                        app:fontFamily="@font/inter_semibold" />
+                </LinearLayout>
+
+                <!-- Kecocokan AI -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <com.google.android.material.textview.MaterialTextView
+                        style="@style/TextAppearance.BP.Login.Small"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Kecocokan AI" />
+
+                    <com.google.android.material.textview.MaterialTextView
+                        android:id="@+id/tvMatchScore"
+                        style="@style/TextAppearance.BP.Login.Body"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="92%"
+                        android:textColor="@color/bp_login_accent"
+                        app:fontFamily="@font/inter_bold" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <!-- Bio Quote (Figma 3:474) -->
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/tvBio"
+                style="@style/TextAppearance.BP.Login.Small"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="14dp"
+                android:text="“Teknik dulu, ego belakangan. Cari partner untuk sparring terkontrol dan berkembang bersama. Siap latihan di gym dengan pelatih.”"
+                android:textColor="@color/bp_login_muted"
+                android:textSize="13sp"
+                app:lineHeight="19sp" />
+
+            <!-- Section: FIGHT HISTORY (Figma 3:475) -->
+            <com.google.android.material.textview.MaterialTextView
+                style="@style/TextAppearance.BP.Login.Title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:text="FIGHT HISTORY"
+                android:textSize="26sp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/bg_card"
+                android:orientation="vertical"
+                android:padding="16dp">
+
+                <!-- History 1 -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <com.google.android.material.textview.MaterialTextView
+                        style="@style/TextAppearance.BP.Login.Body"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="vs. Fajar Ramadhan"
+                        android:textSize="13sp"
+                        app:fontFamily="@font/inter_semibold" />
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/bp_badge_verified"
+                        android:paddingStart="8dp"
+                        android:paddingTop="4dp"
+                        android:paddingEnd="8dp"
+                        android:paddingBottom="4dp">
+
+                        <com.google.android.material.textview.MaterialTextView
+                            style="@style/TextAppearance.BP.Login.Label"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="WIN · UD"
+                            android:textColor="#B8D8BC"
+                            android:textSize="10sp"
+                            app:fontFamily="@font/inter_semibold" />
+                    </LinearLayout>
+                </LinearLayout>
+
+                <com.google.android.material.textview.MaterialTextView
+                    style="@style/TextAppearance.BP.Login.Small"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:text="12 Sep 2026 · Boxing · Garuda"
+                    android:textSize="10sp" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginTop="12dp"
+                    android:layout_marginBottom="12dp"
+                    android:background="@color/bp_border" />
+
+                <!-- History 2 -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <com.google.android.material.textview.MaterialTextView
+                        style="@style/TextAppearance.BP.Login.Body"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="vs. Deni Kurniawan"
+                        android:textSize="13sp"
+                        app:fontFamily="@font/inter_semibold" />
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/bp_login_input"
+                        android:paddingStart="8dp"
+                        android:paddingTop="4dp"
+                        android:paddingEnd="8dp"
+                        android:paddingBottom="4dp">
+
+                        <com.google.android.material.textview.MaterialTextView
+                            style="@style/TextAppearance.BP.Login.Label"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="LOSS · SD"
+                            android:textColor="@color/bp_login_muted"
+                            android:textSize="10sp"
+                            app:fontFamily="@font/inter_semibold" />
+                    </LinearLayout>
+                </LinearLayout>
+
+                <com.google.android.material.textview.MaterialTextView
+                    style="@style/TextAppearance.BP.Login.Small"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:text="08 Agu 2026 · Boxing · Rajawali"
+                    android:textSize="10sp" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginTop="12dp"
+                    android:layout_marginBottom="12dp"
+                    android:background="@color/bp_border" />
+
+                <!-- History 3 -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <com.google.android.material.textview.MaterialTextView
+                        style="@style/TextAppearance.BP.Login.Body"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="vs. Bayu Nugraha"
+                        android:textSize="13sp"
+                        app:fontFamily="@font/inter_semibold" />
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/bp_badge_verified"
+                        android:paddingStart="8dp"
+                        android:paddingTop="4dp"
+                        android:paddingEnd="8dp"
+                        android:paddingBottom="4dp">
+
+                        <com.google.android.material.textview.MaterialTextView
+                            style="@style/TextAppearance.BP.Login.Label"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="WIN · UD"
+                            android:textColor="#B8D8BC"
+                            android:textSize="10sp"
+                            app:fontFamily="@font/inter_semibold" />
+                    </LinearLayout>
+                </LinearLayout>
+
+                <com.google.android.material.textview.MaterialTextView
+                    style="@style/TextAppearance.BP.Login.Small"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:text="20 Jun 2026 · Boxing · Rajawali"
+                    android:textSize="10sp" />
+            </LinearLayout>
+
+            <!-- Section: HIGHLIGHT (Figma 3:495) -->
+            <com.google.android.material.textview.MaterialTextView
+                style="@style/TextAppearance.BP.Login.Title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:text="HIGHLIGHT"
+                android:textSize="26sp" />
+
+            <LinearLayout
+                android:id="@+id/layoutHighlight"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:background="?attr/selectableItemBackground"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <FrameLayout
+                    android:layout_width="108dp"
+                    android:layout_height="80dp"
+                    android:background="@drawable/bg_card">
+
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:scaleType="centerCrop"
+                        app:srcCompat="@drawable/bp_welcome_training" />
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="#66000000" />
+
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:layout_width="32dp"
+                        android:layout_height="32dp"
+                        android:layout_gravity="center"
+                        app:srcCompat="@drawable/bp_ic_play_circle" />
+                </FrameLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="14dp"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <com.google.android.material.textview.MaterialTextView
+                        style="@style/TextAppearance.BP.Login.Body"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Pad work &amp; footwork"
+                        android:textSize="13sp"
+                        app:fontFamily="@font/inter_semibold" />
+
+                    <com.google.android.material.textview.MaterialTextView
+                        style="@style/TextAppearance.BP.Login.Small"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="4dp"
+                        android:text="01:42 · YouTube · 10 Sep 2026"
+                        android:textSize="10sp" />
+
+                    <com.google.android.material.textview.MaterialTextView
+                        style="@style/TextAppearance.BP.Login.Small"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="4dp"
+                        android:text="Lihat video ↗"
+                        android:textColor="@color/bp_login_accent"
+                        android:textSize="11sp"
+                        app:fontFamily="@font/inter_semibold" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <!-- AI Guidance Banner (Figma 3:504) -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/bp_login_guidance"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:padding="12dp">
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_marginEnd="10dp"
+                    android:importantForAccessibility="no"
+                    app:srcCompat="@drawable/bp_welcome_shield" />
+
+                <com.google.android.material.textview.MaterialTextView
+                    style="@style/TextAppearance.BP.Login.Small"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Kecocokan AI bukan penilaian kesehatan. Sepakati intensitas, aturan, dan pengawasan pelatih."
+                    android:textColor="@color/bp_login_muted"
+                    android:textSize="12sp"
+                    app:lineHeight="16sp" />
+            </LinearLayout>
+
+            <!-- Challenge Button (Figma 3:507) -->
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnChallenge"
+                style="@style/Widget.BP.Login.Button"
+                android:layout_width="match_parent"
+                android:layout_height="52dp"
+                android:layout_marginTop="20dp"
+                android:text="Tantang Fighter"
+                app:icon="@drawable/ic_glove"
+                app:iconGravity="textStart" />
+
+            <!-- Report / Block Footer (Figma 3:510) -->
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/tvReportBlock"
+                style="@style/TextAppearance.BP.Login.Small"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:gravity="center"
+                android:text="Laporkan profil  ·  Blokir fighter"
+                android:textColor="@color/bp_login_muted"
+                android:textSize="11sp" />
+
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

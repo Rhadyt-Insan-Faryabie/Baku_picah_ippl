@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/bg_card"
+    android:gravity="center_horizontal"
+    android:orientation="vertical"
+    android:padding="24dp">
+
+    <!-- Flame Icon in Circle -->
+    <FrameLayout
+        android:layout_width="64dp"
+        android:layout_height="64dp"
+        android:background="@drawable/bp_btn_challenge">
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:layout_gravity="center"
+            android:importantForAccessibility="no"
+            app:srcCompat="@drawable/bp_ic_flame" />
+    </FrameLayout>
+
+    <com.google.android.material.textview.MaterialTextView
+        style="@style/TextAppearance.BP.Login.Label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="KEDUA PETARUNG SETUJU"
+        android:textColor="@color/bp_login_accent"
+        android:textSize="11sp"
+        app:fontFamily="@font/inter_bold" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/tvMatchHeading"
+        style="@style/TextAppearance.BP.Login.Title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:gravity="center"
+        android:text="TANTANGAN DITERIMA!"
+        android:textSize="26sp" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/tvMatchOpponent"
+        style="@style/TextAppearance.BP.Login.Body"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:gravity="center"
+        android:text="Kamu dan Ardi Saputra siap tanding!"
+        android:textColor="@color/bp_login_text" />
+
+    <com.google.android.material.textview.MaterialTextView
+        style="@style/TextAppearance.BP.Login.Small"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:gravity="center"
+        android:text="Sepakati lokasi arena dan jadwal di chat 1-on-1."
+        android:textColor="@color/bp_login_muted" />
+
+    <!-- Actions -->
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnOpenChat"
+        style="@style/Widget.BP.Login.Button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:text="Kirim Pesan ke Lawan" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnContinueDiscovery"
+        style="@style/Widget.BP.Login.Button.Secondary"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="Lanjut Cari Lawan" />
+</LinearLayout>

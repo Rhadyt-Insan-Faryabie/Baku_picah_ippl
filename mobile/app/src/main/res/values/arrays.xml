@@ -23,4 +23,18 @@
         <item>Pontianak</item>
         <item>Manado</item>
     </string-array>
+
+    <string-array name="bp_stances">
+        <item>Orthodox</item>
+        <item>Southpaw</item>
+        <item>Switch</item>
+    </string-array>
+
+    <string-array name="bp_experiences">
+        <item>Pemula (&lt; 1 tahun)</item>
+        <item>1 tahun</item>
+        <item>2 tahun</item>
+        <item>3 - 5 tahun</item>
+        <item>&gt; 5 tahun (Berpengalaman)</item>
+    </string-array>
 </resources>

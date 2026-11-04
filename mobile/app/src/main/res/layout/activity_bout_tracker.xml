@@ -1,105 +1,557 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/bp_bg">
+    android:background="@color/bp_bg"
+    android:orientation="vertical">
 
+    <!-- App Header (Figma 3:942) -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:padding="20dp">
+        android:minHeight="68dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingStart="16dp"
+        android:paddingTop="12dp"
+        android:paddingEnd="16dp"
+        android:paddingBottom="8dp">
 
-        <TextView
-            android:layout_width="wrap_content"
+        <androidx.appcompat.widget.AppCompatImageButton
+            android:id="@+id/btnBackTracker"
+            android:layout_width="44dp"
+            android:layout_height="44dp"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:contentDescription="Kembali"
+            android:padding="11dp"
+            android:scaleType="fitCenter"
+            app:srcCompat="@drawable/bp_login_arrow_left" />
+
+        <LinearLayout
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:text="Pelacak Status Laga"
-            android:textColor="@color/bp_text"
-            android:textSize="24sp"
-            android:textStyle="bold" />
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_weight="1"
+            android:orientation="vertical">
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="4dp"
-            android:layout_marginBottom="18dp"
-            android:text="Rambo Sitorus vs Dedi “Si Petir”"
-            android:textColor="@color/bp_text_muted"
-            android:textSize="14sp" />
+            <com.google.android.material.textview.MaterialTextView
+                style="@style/TextAppearance.BP.Login.Label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="BP-2410-018"
+                android:textColor="@color/bp_login_accent"
+                android:textSize="11sp"
+                app:fontFamily="@font/inter_bold" />
 
-        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
-            android:orientation="horizontal" android:paddingTop="10dp" android:paddingBottom="10dp">
-            <View android:layout_width="14dp" android:layout_height="14dp"
-                android:layout_marginTop="4dp" android:background="@drawable/bg_circle_blood" />
-            <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content"
-                android:layout_marginStart="14dp" android:layout_weight="1" android:orientation="vertical">
-                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
-                    android:text="Pending Opponent" android:textColor="@color/bp_text"
-                    android:textSize="15sp" android:textStyle="bold" />
-                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
-                    android:text="Menunggu lawan menerima" android:textColor="@color/bp_text_muted"
-                    android:textSize="13sp" />
-            </LinearLayout>
+            <com.google.android.material.textview.MaterialTextView
+                style="@style/TextAppearance.BP.Login.Title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="2dp"
+                android:text="PERJALANAN BOUT"
+                android:textSize="26sp"
+                app:lineHeight="28sp" />
         </LinearLayout>
 
-        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
-            android:orientation="horizontal" android:paddingTop="10dp" android:paddingBottom="10dp">
-            <View android:layout_width="14dp" android:layout_height="14dp"
-                android:layout_marginTop="4dp" android:background="@drawable/bg_circle_blood" />
-            <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content"
-                android:layout_marginStart="14dp" android:layout_weight="1" android:orientation="vertical">
-                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
-                    android:text="Opponent Accepted" android:textColor="@color/bp_text"
-                    android:textSize="15sp" android:textStyle="bold" />
-                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
-                    android:text="Lawan menerima tantangan" android:textColor="@color/bp_text_muted"
-                    android:textSize="13sp" />
-            </LinearLayout>
-        </LinearLayout>
-
-        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
-            android:orientation="horizontal" android:paddingTop="10dp" android:paddingBottom="10dp">
-            <View android:layout_width="14dp" android:layout_height="14dp"
-                android:layout_marginTop="4dp" android:background="@drawable/bg_circle_blood" />
-            <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content"
-                android:layout_marginStart="14dp" android:layout_weight="1" android:orientation="vertical">
-                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
-                    android:text="Awaiting Admin Verification" android:textColor="@color/bp_warning"
-                    android:textSize="15sp" android:textStyle="bold" />
-                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
-                    android:text="Sedang ditinjau admin" android:textColor="@color/bp_text_muted"
-                    android:textSize="13sp" />
-            </LinearLayout>
-        </LinearLayout>
-
-        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
-            android:orientation="horizontal" android:paddingTop="10dp" android:paddingBottom="10dp">
-            <View android:layout_width="14dp" android:layout_height="14dp"
-                android:layout_marginTop="4dp" android:background="@drawable/bg_circle_surface" />
-            <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content"
-                android:layout_marginStart="14dp" android:layout_weight="1" android:orientation="vertical">
-                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
-                    android:text="Confirmed" android:textColor="@color/bp_text_muted"
-                    android:textSize="15sp" android:textStyle="bold" />
-                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
-                    android:text="Laga terkonfirmasi" android:textColor="@color/bp_text_muted"
-                    android:textSize="13sp" />
-            </LinearLayout>
-        </LinearLayout>
-
-        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
-            android:orientation="horizontal" android:paddingTop="10dp" android:paddingBottom="10dp">
-            <View android:layout_width="14dp" android:layout_height="14dp"
-                android:layout_marginTop="4dp" android:background="@drawable/bg_circle_surface" />
-            <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content"
-                android:layout_marginStart="14dp" android:layout_weight="1" android:orientation="vertical">
-                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
-                    android:text="Completed" android:textColor="@color/bp_text_muted"
-                    android:textSize="15sp" android:textStyle="bold" />
-                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
-                    android:text="Selesai &amp; hasil tercatat" android:textColor="@color/bp_text_muted"
-                    android:textSize="13sp" />
-            </LinearLayout>
-        </LinearLayout>
+        <androidx.appcompat.widget.AppCompatImageButton
+            android:id="@+id/btnTrackerMore"
+            android:layout_width="44dp"
+            android:layout_height="44dp"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:contentDescription="Menu"
+            android:padding="11dp"
+            android:scaleType="fitCenter"
+            app:srcCompat="@drawable/bp_login_more" />
     </LinearLayout>
-</ScrollView>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:clipToPadding="false"
+        android:fillViewport="true"
+        android:scrollbars="none">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingStart="20dp"
+            android:paddingTop="8dp"
+            android:paddingEnd="20dp"
+            android:paddingBottom="32dp">
+
+            <!-- Opponent Summary Card (Figma 3:948) -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bg_card"
+                android:orientation="vertical"
+                android:padding="16dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <FrameLayout
+                        android:layout_width="52dp"
+                        android:layout_height="56dp"
+                        android:background="@drawable/bp_card_portrait_placeholder">
+
+                        <androidx.appcompat.widget.AppCompatImageView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:scaleType="centerCrop"
+                            app:srcCompat="@drawable/bp_welcome_training" />
+                    </FrameLayout>
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="12dp"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <com.google.android.material.textview.MaterialTextView
+                            style="@style/TextAppearance.BP.Login.Body"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Ardi “The Hammer”"
+                            android:textSize="14sp"
+                            app:fontFamily="@font/inter_semibold" />
+
+                        <com.google.android.material.textview.MaterialTextView
+                            style="@style/TextAppearance.BP.Login.Small"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="2dp"
+                            android:text="Boxing · 64,5 kg · Bandung"
+                            android:textSize="11sp" />
+                    </LinearLayout>
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginTop="14dp"
+                    android:layout_marginBottom="12dp"
+                    android:background="@color/bp_border" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <com.google.android.material.textview.MaterialTextView
+                        style="@style/TextAppearance.BP.Login.Small"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Jadwal" />
+
+                    <com.google.android.material.textview.MaterialTextView
+                        style="@style/TextAppearance.BP.Login.Body"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="24 Okt · 16.00 WIB"
+                        app:fontFamily="@font/inter_semibold" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <com.google.android.material.textview.MaterialTextView
+                        style="@style/TextAppearance.BP.Login.Small"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Venue" />
+
+                    <com.google.android.material.textview.MaterialTextView
+                        style="@style/TextAppearance.BP.Login.Body"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Garuda Boxing Bandung"
+                        app:fontFamily="@font/inter_semibold" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:background="@drawable/bp_badge_match"
+                    android:paddingStart="8dp"
+                    android:paddingTop="4dp"
+                    android:paddingEnd="8dp"
+                    android:paddingBottom="4dp">
+
+                    <com.google.android.material.textview.MaterialTextView
+                        style="@style/TextAppearance.BP.Login.Label"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="MENUNGGU VERIFIKASI"
+                        android:textColor="@color/bp_login_accent"
+                        android:textSize="10sp"
+                        app:fontFamily="@font/inter_semibold" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <!-- 5-Step Timeline (Figma 3:963) -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:orientation="vertical">
+
+                <!-- Step 1: Pending Opponent (Done) -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <LinearLayout
+                        android:layout_width="26dp"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_horizontal"
+                        android:orientation="vertical">
+
+                        <FrameLayout
+                            android:layout_width="26dp"
+                            android:layout_height="26dp"
+                            android:background="@drawable/bp_badge_verified">
+
+                            <com.google.android.material.textview.MaterialTextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:text="✓"
+                                android:textColor="#B8D8BC"
+                                android:textSize="12sp"
+                                app:fontFamily="@font/inter_bold" />
+                        </FrameLayout>
+
+                        <View
+                            android:layout_width="1dp"
+                            android:layout_height="48dp"
+                            android:background="@color/bp_border" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="14dp"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <com.google.android.material.textview.MaterialTextView
+                            style="@style/TextAppearance.BP.Login.Body"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Pending Opponent"
+                            android:textSize="14sp"
+                            app:fontFamily="@font/inter_semibold" />
+
+                        <com.google.android.material.textview.MaterialTextView
+                            style="@style/TextAppearance.BP.Login.Small"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="2dp"
+                            android:text="Proposal terkirim · 14 Okt, 10.45"
+                            android:textSize="11sp" />
+                    </LinearLayout>
+                </LinearLayout>
+
+                <!-- Step 2: Opponent Accepted (Done) -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <LinearLayout
+                        android:layout_width="26dp"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_horizontal"
+                        android:orientation="vertical">
+
+                        <FrameLayout
+                            android:layout_width="26dp"
+                            android:layout_height="26dp"
+                            android:background="@drawable/bp_badge_verified">
+
+                            <com.google.android.material.textview.MaterialTextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:text="✓"
+                                android:textColor="#B8D8BC"
+                                android:textSize="12sp"
+                                app:fontFamily="@font/inter_bold" />
+                        </FrameLayout>
+
+                        <View
+                            android:layout_width="1dp"
+                            android:layout_height="56dp"
+                            android:background="@color/bp_border" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="14dp"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <com.google.android.material.textview.MaterialTextView
+                            style="@style/TextAppearance.BP.Login.Body"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Opponent Accepted"
+                            android:textSize="14sp"
+                            app:fontFamily="@font/inter_semibold" />
+
+                        <com.google.android.material.textview.MaterialTextView
+                            style="@style/TextAppearance.BP.Login.Small"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="2dp"
+                            android:text="Ardi menerima · 14 Okt, 11.02"
+                            android:textSize="11sp" />
+                    </LinearLayout>
+                </LinearLayout>
+
+                <!-- Step 3: Awaiting Admin Verification (Active) -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <LinearLayout
+                        android:layout_width="26dp"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_horizontal"
+                        android:orientation="vertical">
+
+                        <FrameLayout
+                            android:layout_width="26dp"
+                            android:layout_height="26dp"
+                            android:background="@drawable/bp_btn_circle_secondary"
+                            android:backgroundTint="@color/bp_blood">
+
+                            <androidx.appcompat.widget.AppCompatImageView
+                                android:layout_width="14dp"
+                                android:layout_height="14dp"
+                                android:layout_gravity="center"
+                                app:srcCompat="@drawable/bp_ic_clock" />
+                        </FrameLayout>
+
+                        <View
+                            android:layout_width="1dp"
+                            android:layout_height="56dp"
+                            android:background="@color/bp_border" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="14dp"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <com.google.android.material.textview.MaterialTextView
+                            style="@style/TextAppearance.BP.Login.Body"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Awaiting Admin Verification"
+                            android:textSize="14sp"
+                            app:fontFamily="@font/inter_semibold" />
+
+                        <com.google.android.material.textview.MaterialTextView
+                            style="@style/TextAppearance.BP.Login.Small"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="2dp"
+                            android:text="Bukti deposit diterima · 15 Okt, 09.10"
+                            android:textSize="11sp" />
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="4dp"
+                            android:background="@drawable/bp_badge_match"
+                            android:paddingStart="7dp"
+                            android:paddingTop="3dp"
+                            android:paddingEnd="7dp"
+                            android:paddingBottom="3dp">
+
+                            <com.google.android.material.textview.MaterialTextView
+                                style="@style/TextAppearance.BP.Login.Label"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="DALAM TINJAUAN"
+                                android:textColor="@color/bp_login_accent"
+                                android:textSize="9sp" />
+                        </LinearLayout>
+                    </LinearLayout>
+                </LinearLayout>
+
+                <!-- Step 4: Confirmed (Pending) -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <LinearLayout
+                        android:layout_width="26dp"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_horizontal"
+                        android:orientation="vertical">
+
+                        <FrameLayout
+                            android:layout_width="26dp"
+                            android:layout_height="26dp"
+                            android:background="@drawable/bg_card">
+
+                            <androidx.appcompat.widget.AppCompatImageView
+                                android:layout_width="14dp"
+                                android:layout_height="14dp"
+                                android:layout_gravity="center"
+                                app:srcCompat="@drawable/bp_ic_circle" />
+                        </FrameLayout>
+
+                        <View
+                            android:layout_width="1dp"
+                            android:layout_height="48dp"
+                            android:background="@color/bp_border" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="14dp"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <com.google.android.material.textview.MaterialTextView
+                            style="@style/TextAppearance.BP.Login.Body"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Confirmed"
+                            android:textColor="@color/bp_login_muted"
+                            android:textSize="14sp"
+                            app:fontFamily="@font/inter_semibold" />
+
+                        <com.google.android.material.textview.MaterialTextView
+                            style="@style/TextAppearance.BP.Login.Small"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="2dp"
+                            android:text="Setelah identitas, venue &amp; deposit disahkan"
+                            android:textSize="11sp" />
+                    </LinearLayout>
+                </LinearLayout>
+
+                <!-- Step 5: Completed (Pending) -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <FrameLayout
+                        android:layout_width="26dp"
+                        android:layout_height="26dp"
+                        android:background="@drawable/bg_card">
+
+                        <androidx.appcompat.widget.AppCompatImageView
+                            android:layout_width="14dp"
+                            android:layout_height="14dp"
+                            android:layout_gravity="center"
+                            app:srcCompat="@drawable/bp_ic_circle" />
+                    </FrameLayout>
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="14dp"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <com.google.android.material.textview.MaterialTextView
+                            style="@style/TextAppearance.BP.Login.Body"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Completed"
+                            android:textColor="@color/bp_login_muted"
+                            android:textSize="14sp"
+                            app:fontFamily="@font/inter_semibold" />
+
+                        <com.google.android.material.textview.MaterialTextView
+                            style="@style/TextAppearance.BP.Login.Small"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="2dp"
+                            android:text="Setelah laga usai &amp; hasil disahkan juri"
+                            android:textSize="11sp" />
+                    </LinearLayout>
+                </LinearLayout>
+            </LinearLayout>
+
+            <!-- Safety Guidance Banner (Figma 3:1005) -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:background="@drawable/bp_login_guidance"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:padding="12dp">
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_marginEnd="10dp"
+                    android:importantForAccessibility="no"
+                    app:srcCompat="@drawable/bp_welcome_shield" />
+
+                <com.google.android.material.textview.MaterialTextView
+                    style="@style/TextAppearance.BP.Login.Small"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Belum boleh bertanding. Admin sedang memeriksa kedua deposit, persetujuan, dan pendamping gym."
+                    android:textColor="@color/bp_login_muted"
+                    android:textSize="12sp"
+                    app:lineHeight="16sp" />
+            </LinearLayout>
+
+            <!-- Action Button: Hubungi Ardi -->
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnContactOpponentTracker"
+                style="@style/Widget.BP.Login.Button.Secondary"
+                android:layout_width="match_parent"
+                android:layout_height="52dp"
+                android:layout_marginTop="20dp"
+                android:text="Hubungi Lawan &amp; Diskusi" />
+
+            <!-- Footer note -->
+            <com.google.android.material.textview.MaterialTextView
+                style="@style/TextAppearance.BP.Login.Small"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:gravity="center"
+                android:text="Butuh bantuan? Hubungi admin  ·  Batalkan proposal"
+                android:textColor="@color/bp_login_muted"
+                android:textSize="11sp" />
+
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

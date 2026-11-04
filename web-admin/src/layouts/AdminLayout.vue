@@ -10,13 +10,16 @@ const sidebarOpen = ref(false);
 
 function logout() {
   localStorage.removeItem('bp_admin_token');
+  localStorage.removeItem('bp_admin_user');
   router.push({ name: 'login' });
 }
 
 const titles = {
-  dashboard: 'Dashboard',
-  verification: 'Verifikasi Pertandingan',
-  arbitration: 'Arbitrase Hasil',
+  dashboard: 'Ringkasan Operasional',
+  fighters: 'Verifikasi Fighter',
+  bouts: 'Manajemen Bout',
+  escrow: 'Deposit & Escrow Ledger',
+  arbitration: 'Hasil & Sengketa (Arbitrase)',
   'master-data': 'Master Data',
   moderation: 'Moderasi & Keamanan',
 };
@@ -24,9 +27,17 @@ const titles = {
 
 <template>
   <div class="layout">
-    <Sidebar :open="sidebarOpen" @close="sidebarOpen = false" />
+    <Sidebar
+      :open="sidebarOpen"
+      @close="sidebarOpen = false"
+      @logout="logout"
+    />
     <div class="layout__main">
-      <Topbar :title="titles[route.name] || 'BAKU PICAH'" @toggle-sidebar="sidebarOpen = !sidebarOpen" @logout="logout" />
+      <Topbar
+        :title="titles[route.name] || 'BAKU PICAH CONTROL ROOM'"
+        @toggle-sidebar="sidebarOpen = !sidebarOpen"
+        @logout="logout"
+      />
       <main class="layout__content">
         <router-view />
       </main>
@@ -38,6 +49,7 @@ const titles = {
 .layout {
   display: flex;
   min-height: 100vh;
+  background: #121212;
 }
 .layout__main {
   flex: 1;

@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="?attr/selectableItemBackground"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingTop="14dp"
+        android:paddingBottom="14dp">
+
+        <!-- Avatar -->
+        <FrameLayout
+            android:layout_width="56dp"
+            android:layout_height="52dp"
+            android:background="@drawable/bp_card_portrait_placeholder">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/ivAvatar"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:importantForAccessibility="no"
+                android:scaleType="centerCrop"
+                app:srcCompat="@drawable/bp_welcome_training" />
+        </FrameLayout>
+
+        <!-- Conversation Details -->
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="14dp"
+            android:layout_marginEnd="10dp"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <!-- Name and Time -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/tvName"
+                    style="@style/TextAppearance.BP.Login.Body"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:ellipsize="end"
+                    android:maxLines="1"
+                    android:text="Ardi “The Hammer”"
+                    android:textSize="14sp"
+                    app:fontFamily="@font/inter_semibold" />
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/tvTime"
+                    style="@style/TextAppearance.BP.Login.Small"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="10:42"
+                    android:textSize="10sp" />
+            </LinearLayout>
+
+            <!-- Message Preview -->
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/tvMessage"
+                style="@style/TextAppearance.BP.Login.Small"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="3dp"
+                android:ellipsize="end"
+                android:maxLines="1"
+                android:text="Siap, 24 Oktober di Garuda ya."
+                android:textSize="12sp" />
+
+            <!-- Status Badge -->
+            <LinearLayout
+                android:id="@+id/layoutStatusBadge"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="6dp"
+                android:background="@drawable/bp_badge_match"
+                android:paddingStart="8dp"
+                android:paddingTop="3dp"
+                android:paddingEnd="8dp"
+                android:paddingBottom="3dp">
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/tvStatus"
+                    style="@style/TextAppearance.BP.Login.Label"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Proposal disepakati"
+                    android:textColor="@color/bp_login_accent"
+                    android:textSize="10sp"
+                    app:fontFamily="@font/inter_semibold" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <!-- Unread Indicator Dot -->
+        <View
+            android:id="@+id/viewUnreadDot"
+            android:layout_width="8dp"
+            android:layout_height="8dp"
+            android:background="@drawable/bp_indicator_unread" />
+
+    </LinearLayout>
+
+    <!-- Bottom border line -->
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/bp_border" />
+
+</LinearLayout>

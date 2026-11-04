@@ -12,6 +12,7 @@ import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 
 import java.io.IOException;
+import java.lang.reflect.Type;
 import java.util.concurrent.TimeUnit;
 
 import okhttp3.Call;
@@ -52,20 +53,44 @@ public final class ApiClient {
     }
 
     public static void get(String path, String token, Class<?> responseType, ApiCallback<?> callback) {
+        get(path, token, (Type) responseType, callback);
+    }
+
+    public static void get(String path, String token, Type responseType, ApiCallback<?> callback) {
         Request request = baseBuilder(path, token).get().build();
         enqueue(request, responseType, callback);
     }
 
     public static void post(String path, Object body, String token, Class<?> responseType, ApiCallback<?> callback) {
+        post(path, body, token, (Type) responseType, callback);
+    }
+
+    public static void post(String path, Object body, String token, Type responseType, ApiCallback<?> callback) {
+        RequestBody requestBody;
+        if (body == null) {
+            requestBody = RequestBody.create("", null);
+        } else {
+            requestBody = RequestBody.create(GSON.toJson(body), JSON);
+        }
         Request request = baseBuilder(path, token)
-                .post(RequestBody.create(GSON.toJson(body), JSON))
+                .post(requestBody)
                 .build();
         enqueue(request, responseType, callback);
     }
 
     public static void put(String path, Object body, String token, Class<?> responseType, ApiCallback<?> callback) {
+        put(path, body, token, (Type) responseType, callback);
+    }
+
+    public static void put(String path, Object body, String token, Type responseType, ApiCallback<?> callback) {
+        RequestBody requestBody;
+        if (body == null) {
+            requestBody = RequestBody.create("", null);
+        } else {
+            requestBody = RequestBody.create(GSON.toJson(body), JSON);
+        }
         Request request = baseBuilder(path, token)
-                .put(RequestBody.create(GSON.toJson(body), JSON))
+                .put(requestBody)
                 .build();
         enqueue(request, responseType, callback);
     }
@@ -81,7 +106,7 @@ public final class ApiClient {
     }
 
     @SuppressWarnings("unchecked")
-    private static void enqueue(Request request, Class<?> responseType, ApiCallback<?> callback) {
+    private static void enqueue(Request request, Type responseType, ApiCallback<?> callback) {
         CLIENT.newCall(request).enqueue(new Callback() {
             @Override
             public void onFailure(@NonNull Call call, @NonNull IOException e) {
