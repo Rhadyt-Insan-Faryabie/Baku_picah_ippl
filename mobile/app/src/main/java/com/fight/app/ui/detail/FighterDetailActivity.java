@@ -16,6 +16,8 @@ import com.fight.app.R;
 import com.fight.app.data.SessionManager;
 import com.fight.app.data.api.ApiCallback;
 import com.fight.app.data.api.MatchApi;
+import com.fight.app.data.api.BoutApi;
+import com.fight.app.data.model.BoutItem;
 import com.fight.app.data.model.SwipeResult;
 import com.google.android.material.button.MaterialButton;
 import com.google.android.material.dialog.MaterialAlertDialogBuilder;
@@ -170,15 +172,29 @@ public class FighterDetailActivity extends AppCompatActivity {
             @Override
             public void onSuccess(SwipeResult data) {
                 if (data != null && data.matched) {
-                    Toast.makeText(FighterDetailActivity.this,
-                            "MATCH! Kamu dan " + fighterName + " saling menantang!",
-                            Toast.LENGTH_LONG).show();
+                    BoutApi.createBout(token, fighterId, null, null, "Tantangan laga resmi Baku Picah", new ApiCallback<BoutItem>() {
+                        @Override
+                        public void onSuccess(BoutItem bout) {
+                            Toast.makeText(FighterDetailActivity.this,
+                                    "MATCH! Proposal bout resmi berhasil diajukan ke " + fighterName + "!",
+                                    Toast.LENGTH_LONG).show();
+                            finish();
+                        }
+
+                        @Override
+                        public void onError(String message) {
+                            Toast.makeText(FighterDetailActivity.this,
+                                    "MATCH! Kamu dan " + fighterName + " saling menantang!",
+                                    Toast.LENGTH_LONG).show();
+                            finish();
+                        }
+                    });
                 } else {
                     Toast.makeText(FighterDetailActivity.this,
                             "Tantangan dikirim ke " + fighterName + "!",
                             Toast.LENGTH_SHORT).show();
+                    finish();
                 }
-                finish();
             }
 
             @Override
@@ -197,9 +213,31 @@ public class FighterDetailActivity extends AppCompatActivity {
         new MaterialAlertDialogBuilder(this)
                 .setTitle("Laporkan atau Blokir")
                 .setItems(options, (dialog, which) -> {
-                    Toast.makeText(FighterDetailActivity.this,
-                            "Laporan telah diterima oleh tim kepatuhan Baku Picah.",
-                            Toast.LENGTH_SHORT).show();
+                    String reason = options[which];
+                    String token = SessionManager.getToken(this);
+                    int targetId = fighterId > 0 ? fighterId : 2;
+
+                    com.fight.app.data.api.ReportApi.submitReport(
+                            token,
+                            targetId,
+                            reason,
+                            "Laporan dikirim dari halaman profil petarung.",
+                            new ApiCallback<java.util.Map>() {
+                                @Override
+                                public void onSuccess(java.util.Map data) {
+                                    Toast.makeText(FighterDetailActivity.this,
+                                            "Laporan telah diterima oleh tim kepatuhan Baku Picah.",
+                                            Toast.LENGTH_SHORT).show();
+                                }
+
+                                @Override
+                                public void onError(String message) {
+                                    Toast.makeText(FighterDetailActivity.this,
+                                            "Laporan tercatat: " + message,
+                                            Toast.LENGTH_SHORT).show();
+                                }
+                            }
+                    );
                 })
                 .setNegativeButton("Batal", null)
                 .show();

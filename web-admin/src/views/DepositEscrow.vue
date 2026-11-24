@@ -1,12 +1,57 @@
 <script setup>
-import { ref, computed } from 'vue';
+import { ref, computed, onMounted } from 'vue';
 import { escrows as seed } from '../services/mockData.js';
+import api from '../services/api.js';
 
 const escrowsList = ref([...seed]);
 const filter = ref('Semua');
 const selectedReceipt = ref(null);
 
 const filters = ['Semua', 'Menunggu Verifikasi', 'Verified', 'Dicairkan'];
+
+async function loadRealEscrows() {
+  try {
+    const res = await api.get('/bout/');
+    if (res.data && res.data.length > 0) {
+      const dynamicEscrows = [];
+      res.data.forEach((b) => {
+        if (b.challenger_deposit_paid) {
+          dynamicEscrows.push({
+            id: `ESC-${b.id}01`,
+            boutId: `BT-${String(b.id).padStart(4, '0')}`,
+            fighterName: b.challenger?.full_name || b.challenger?.username || `Fighter #${b.challenger_id}`,
+            amount: `Rp${(b.deposit_amount || 150000).toLocaleString('id-ID')}`,
+            method: 'BCA Virtual Account / QRIS',
+            date: new Date(b.updated_at || b.created_at).toLocaleString('id-ID'),
+            status: b.status === 'completed' ? 'Dicairkan' : 'Verified',
+            receiptUrl: '/mock/receipt_rambo.jpg',
+          });
+        }
+        if (b.opponent_deposit_paid) {
+          dynamicEscrows.push({
+            id: `ESC-${b.id}02`,
+            boutId: `BT-${String(b.id).padStart(4, '0')}`,
+            fighterName: b.opponent?.full_name || b.opponent?.username || `Fighter #${b.opponent_id}`,
+            amount: `Rp${(b.deposit_amount || 150000).toLocaleString('id-ID')}`,
+            method: 'Mandiri Transfer / QRIS',
+            date: new Date(b.updated_at || b.created_at).toLocaleString('id-ID'),
+            status: b.status === 'completed' ? 'Dicairkan' : 'Verified',
+            receiptUrl: '/mock/receipt_dedi.jpg',
+          });
+        }
+      });
+      if (dynamicEscrows.length > 0) {
+        escrowsList.value = [...dynamicEscrows, ...seed];
+      }
+    }
+  } catch (err) {
+    console.warn('Menggunakan data mock escrow:', err.message);
+  }
+}
+
+onMounted(() => {
+  loadRealEscrows();
+});
 
 const filteredEscrows = computed(() => {
   if (filter.value === 'Semua') return escrowsList.value;

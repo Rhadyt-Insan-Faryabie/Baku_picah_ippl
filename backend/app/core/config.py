@@ -24,6 +24,11 @@ class Settings(BaseSettings):
     access_token_expire_minutes: int = 60
     algorithm: str = "HS256"
 
+    # Midtrans Payment Gateway Settings
+    midtrans_server_key: str = "SB-Mid-server-test-baku-picah"
+    midtrans_client_key: str = "SB-Mid-client-test-baku-picah"
+    midtrans_is_production: bool = False
+
     @property
     def database_url(self) -> str:
         if self.database_url_override:

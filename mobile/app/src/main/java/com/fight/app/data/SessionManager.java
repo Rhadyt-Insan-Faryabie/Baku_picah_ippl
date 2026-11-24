@@ -35,6 +35,18 @@ public final class SessionManager {
         return prefs(context).getString(KEY_TOKEN, null);
     }
 
+    public static int getUserId(Context context) {
+        return prefs(context).getInt(KEY_USER_ID, 0);
+    }
+
+    public static int getFighterId(Context context) {
+        return getUserId(context);
+    }
+
+    public static String getUsername(Context context) {
+        return prefs(context).getString(KEY_USERNAME, "");
+    }
+
     public static String getFullName(Context context) {
         return prefs(context).getString(KEY_FULL_NAME, "");
     }

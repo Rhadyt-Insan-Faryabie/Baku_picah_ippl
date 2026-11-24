@@ -21,23 +21,114 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/propose_bout"
+            android:text="Kesepakatan Laga Otomatis"
             android:textColor="@color/bp_text"
             android:textSize="20sp"
             android:textStyle="bold" />
 
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:text="Sistem menetapkan arena netral di titik tengah dan aturan standar keselamatan."
+            android:textColor="@color/bp_text_muted"
+            android:textSize="12sp" />
+
+        <!-- Card Info Otomatisasi Arena Netral & Aturan Standar -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="14dp"
+            android:background="@drawable/bg_card"
+            android:orientation="vertical"
+            android:padding="14dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="📍 Arena Netral (Titik Tengah)"
+                    android:textColor="@color/bp_text"
+                    android:textSize="13sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="AUTO MATCH"
+                    android:textColor="@color/bp_blood_bright"
+                    android:textSize="11sp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="2dp"
+                android:text="Baku Picah Neutral Octagon / Garuda Arena"
+                android:textColor="@color/bp_text_muted"
+                android:textSize="12sp" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                android:background="@color/bp_border" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="⚖️ Aturan &amp; Safety"
+                    android:textColor="@color/bp_text"
+                    android:textSize="13sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="MMA 3x2 MENIT"
+                    android:textColor="@color/bp_blood_bright"
+                    android:textSize="11sp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="2dp"
+                android:text="Standar Baku Picah: Wajib headguard, gumshield, &amp; wasit berlisensi."
+                android:textColor="@color/bp_text_muted"
+                android:textSize="12sp" />
+        </LinearLayout>
+
+        <!-- Form Input (Bisa diedit bila ingin custom) -->
         <com.google.android.material.textfield.TextInputLayout
             style="@style/Widget.BP.Field"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:hint="Tanggal">
+            android:layout_marginTop="14dp"
+            android:hint="Jadwal Tanggal">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/etDate"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:focusable="false"
+                android:inputType="text"
+                android:text="Sabtu, 28 Nov 2026"
                 android:textColor="@color/bp_text" />
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -45,14 +136,15 @@
             style="@style/Widget.BP.Field"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="12dp"
-            android:hint="Waktu">
+            android:layout_marginTop="10dp"
+            android:hint="Waktu Tanding">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/etTime"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:focusable="false"
+                android:inputType="text"
+                android:text="19:00 WIB"
                 android:textColor="@color/bp_text" />
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -60,14 +152,15 @@
             style="@style/Widget.BP.Field"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="12dp"
-            android:hint="Lokasi / Tempat">
+            android:layout_marginTop="10dp"
+            android:hint="Lokasi / Arena Netral">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/etLocation"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="text"
+                android:text="Baku Picah Neutral Octagon (Bandung)"
                 android:textColor="@color/bp_text" />
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -75,49 +168,25 @@
             style="@style/Widget.BP.Field"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="12dp"
-            android:hint="Target Berat">
+            android:layout_marginTop="10dp"
+            android:hint="Target Kelas Berat">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/etWeight"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="text"
+                android:text="65.0 kg (Catchweight)"
                 android:textColor="@color/bp_text" />
         </com.google.android.material.textfield.TextInputLayout>
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="12dp"
-            android:background="@drawable/bg_card"
-            android:gravity="center_vertical"
-            android:orientation="horizontal"
-            android:padding="16dp">
-
-            <TextView
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="Aturan Tanding"
-                android:textColor="@color/bp_text_muted"
-                android:textSize="13sp" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="MMA"
-                android:textColor="@color/bp_blood_bright"
-                android:textSize="16sp"
-                android:textStyle="bold" />
-        </LinearLayout>
-
+        <!-- Tombol Kirim & Lanjut Bayar -->
         <com.google.android.material.button.MaterialButton
             android:id="@+id/btnPropose"
             style="@style/Widget.BP.Button"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
-            android:text="Kirim Ajuan" />
+            android:text="Konfirmasi &amp; Lanjut Bayar QRIS" />
     </LinearLayout>
 </ScrollView>

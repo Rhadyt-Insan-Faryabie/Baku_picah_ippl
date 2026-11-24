@@ -19,7 +19,7 @@ class FighterCreate(FighterBase):
 
 
 class FighterLogin(BaseModel):
-    email: EmailStr
+    email: str = Field(..., description="Email atau username petarung")
     password: str
 
 

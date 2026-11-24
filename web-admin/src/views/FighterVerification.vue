@@ -1,7 +1,8 @@
 <script setup>
-import { ref, computed } from 'vue';
+import { ref, computed, onMounted } from 'vue';
 import StatusBadge from '../components/StatusBadge.vue';
 import { fighters as seed } from '../services/mockData.js';
+import api from '../services/api.js';
 
 const fightersList = ref([...seed]);
 const currentFilter = ref('Menunggu Verifikasi');
@@ -16,6 +17,37 @@ const filterTabs = [
   { label: 'Terverifikasi', count: 112 },
   { label: 'Ditolak', count: 4 },
 ];
+
+async function loadRealFighters() {
+  try {
+    const res = await api.get('/fighters/list');
+    if (res.data && res.data.length > 0) {
+      const mapped = res.data.map((f) => ({
+        id: f.id,
+        name: f.full_name || f.username,
+        nickname: f.username,
+        gym: f.city ? `${f.city} Martial Arts` : 'Baku Picah Training Camp',
+        weightClass: f.weight_class || 'Catchweight',
+        weightKg: f.weight_kg || 70,
+        record: `${f.wins || 0}-${f.losses || 0}-${f.draws || 0}`,
+        status: 'Awaiting Verification',
+        idCardUrl: '/mock/ktp_rambo.jpg',
+        medicalCertUrl: '/mock/med_rambo.pdf',
+        sparringVideoUrl: 'https://youtube.com',
+        joinedDate: '2026-11-20',
+        phone: '0812-3456-7890',
+      }));
+      fightersList.value = [...mapped, ...seed];
+      selectedFighter.value = fightersList.value[0];
+    }
+  } catch (err) {
+    console.warn('Menggunakan data mock petarung:', err.message);
+  }
+}
+
+onMounted(() => {
+  loadRealFighters();
+});
 
 const filteredFighters = computed(() => {
   return fightersList.value.filter((f) => {

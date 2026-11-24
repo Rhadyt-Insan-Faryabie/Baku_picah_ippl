@@ -22,17 +22,20 @@ def _recommendations_for(
     current_user: Fighter,
     limit: int,
     same_weight_class_only: bool,
+    city: str | None = None,
 ) -> list[OpponentCard]:
-    """Score every eligible opponent and return the best `limit` of them."""
+    """Score every eligible opponent and return the best `limit` of them (FR-005)."""
     already_swiped = select(Swipe.target_id).where(Swipe.actor_id == current_user.id)
 
-    candidates = db.scalars(
-        select(Fighter).where(
-            Fighter.id != current_user.id,
-            Fighter.role == "fighter",
-            ~Fighter.id.in_(already_swiped),
-        )
-    ).all()
+    stmt = select(Fighter).where(
+        Fighter.id != current_user.id,
+        Fighter.role == "fighter",
+        ~Fighter.id.in_(already_swiped),
+    )
+    if city:
+        stmt = stmt.where(Fighter.city.ilike(f"%{city}%"))
+
+    candidates = db.scalars(stmt).all()
 
     scored: list[tuple[float, Fighter]] = []
     for candidate in candidates:
@@ -98,12 +101,17 @@ def _record_swipe(
 def recommendations(
     limit: int = Query(default=20, ge=1, le=100),
     same_weight_class_only: bool = False,
+    city: str | None = Query(default=None, description="Filter berdasarkan kota/lokasi"),
     current_user: Fighter = Depends(get_current_user),
     db: Session = Depends(get_db),
 ):
-    """Return scored opponent suggestions the current fighter hasn't swiped yet."""
+    """Return scored opponent suggestions the current fighter hasn't swiped yet (FR-005)."""
     return _recommendations_for(
-        db, current_user, limit=limit, same_weight_class_only=same_weight_class_only
+        db,
+        current_user,
+        limit=limit,
+        same_weight_class_only=same_weight_class_only,
+        city=city,
     )
 
 

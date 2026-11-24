@@ -1,0 +1,60 @@
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="200dp"
+    android:height="200dp"
+    android:viewportWidth="200"
+    android:viewportHeight="200">
+    <!-- QR Code Background -->
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M10,10 h180 v180 h-180 z" />
+    
+    <!-- Top-Left Corner Finder Pattern -->
+    <path
+        android:fillColor="#0D0D0F"
+        android:pathData="M25,25 h45 v45 h-45 z M32,32 h31 v31 h-31 z M39,39 h17 v17 h-17 z"
+        android:fillType="evenOdd" />
+    
+    <!-- Top-Right Corner Finder Pattern -->
+    <path
+        android:fillColor="#0D0D0F"
+        android:pathData="M130,25 h45 v45 h-45 z M137,32 h31 v31 h-31 z M144,39 h17 v17 h-17 z"
+        android:fillType="evenOdd" />
+
+    <!-- Bottom-Left Corner Finder Pattern -->
+    <path
+        android:fillColor="#0D0D0F"
+        android:pathData="M25,130 h45 v45 h-45 z M32,137 h31 v31 h-31 z M39,144 h17 v17 h-17 z"
+        android:fillType="evenOdd" />
+
+    <!-- Data Modules / Pattern Simulation -->
+    <path
+        android:fillColor="#0D0D0F"
+        android:pathData="
+            M85,25 h10 v10 h-10 z
+            M105,25 h10 v10 h-10 z
+            M85,45 h20 v10 h-20 z
+            M85,65 h10 v20 h-10 z
+            M105,65 h10 v10 h-10 z
+            M25,85 h20 v10 h-20 z
+            M55,85 h10 v20 h-10 z
+            M75,95 h30 v10 h-30 z
+            M120,85 h20 v20 h-20 z
+            M150,85 h25 v10 h-25 z
+            M85,115 h20 v20 h-20 z
+            M120,115 h10 v10 h-10 z
+            M145,115 h25 v20 h-25 z
+            M85,145 h15 v25 h-15 z
+            M110,145 h25 v10 h-25 z
+            M150,145 h10 v25 h-10 z
+            M115,165 h20 v10 h-20 z
+            M135,165 h35 v10 h-35 z
+        " />
+    
+    <!-- Center Logo Badge -->
+    <path
+        android:fillColor="#B71C1C"
+        android:pathData="M85,85 h30 v30 h-30 z" />
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M92,93 h16 v4 h-16 z M92,98 h12 v3 h-12 z M92,103 h16 v3 h-16 z" />
+</vector>

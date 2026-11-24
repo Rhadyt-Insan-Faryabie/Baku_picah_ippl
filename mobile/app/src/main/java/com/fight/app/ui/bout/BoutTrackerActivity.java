@@ -43,12 +43,18 @@ public class BoutTrackerActivity extends AppCompatActivity {
 
         btnTrackerMore.setOnClickListener(v -> {
             PopupMenu popup = new PopupMenu(this, v);
-            popup.getMenu().add(0, 1, 0, "Ketentuan Escrow & Jaminan");
-            popup.getMenu().add(0, 2, 1, "Hubungi Layanan Bantuan Admin");
-            popup.getMenu().add(0, 3, 2, "Batalkan Proposal Laga");
+            popup.getMenu().add(0, 1, 0, "Bayar Deposit Escrow (Rp150.000)");
+            popup.getMenu().add(0, 2, 1, "Ketentuan Escrow & Jaminan");
+            popup.getMenu().add(0, 3, 2, "Hubungi Layanan Bantuan Admin");
+            popup.getMenu().add(0, 4, 3, "Batalkan Proposal Laga");
 
             popup.setOnMenuItemClickListener(item -> {
-                Toast.makeText(this, "Fitur " + item.getTitle() + " aktif.", Toast.LENGTH_SHORT).show();
+                if (item.getItemId() == 1) {
+                    Intent intent = new Intent(this, DepositCheckoutActivity.class);
+                    startActivity(intent);
+                } else {
+                    Toast.makeText(this, "Fitur " + item.getTitle() + " aktif.", Toast.LENGTH_SHORT).show();
+                }
                 return true;
             });
             popup.show();

@@ -1,13 +1,15 @@
 <script setup>
-import { computed, ref } from 'vue';
+import { computed, ref, onMounted } from 'vue';
 import StatusBadge from '../components/StatusBadge.vue';
 import { bouts as seed } from '../services/mockData.js';
+import api from '../services/api.js';
 
 const boutsList = ref([...seed]);
 const filter = ref('Awaiting Admin Verification');
 const selectedBout = ref(boutsList.value[0]);
 const showCancelModal = ref(false);
 const cancelReason = ref('');
+const loading = ref(false);
 
 const filters = [
   'Semua',
@@ -16,6 +18,60 @@ const filters = [
   'Confirmed',
   'Completed',
 ];
+
+function normalizeStatus(st) {
+  if (st === 'pending') return 'Opponent Accepted';
+  if (st === 'accepted') return 'Opponent Accepted';
+  if (st === 'awaiting_admin') return 'Awaiting Admin Verification';
+  if (st === 'approved' || st === 'confirmed') return 'Confirmed';
+  if (st === 'completed') return 'Completed';
+  if (st === 'rejected' || st === 'cancelled') return 'Cancelled';
+  return st;
+}
+
+function formatApiBout(b) {
+  return {
+    id: `BT-${String(b.id).padStart(4, '0')}`,
+    rawId: b.id,
+    fighterA: b.challenger?.full_name || b.challenger?.username || `Fighter #${b.challenger_id}`,
+    fighterB: b.opponent?.full_name || b.opponent?.username || `Fighter #${b.opponent_id}`,
+    fighterAId: b.challenger_id,
+    fighterBId: b.opponent_id,
+    weight: b.weight_class ? `${b.weight_class} (${b.challenger?.weight_kg || 70} kg)` : 'Catchweight (70 kg)',
+    rules: `${b.rules || 'MMA'} / 3 Ronde x 3 Menit`,
+    location: b.venue_name || b.location || 'GOR Cikutra Arena, Bandung',
+    date: b.scheduled_at ? new Date(b.scheduled_at).toLocaleString('id-ID') : 'Menunggu Jadwal',
+    depositA: b.challenger_deposit_paid ? `Rp${(b.deposit_amount || 150000).toLocaleString('id-ID')} (Lunas)` : 'Belum Bayar',
+    depositB: b.opponent_deposit_paid ? `Rp${(b.deposit_amount || 150000).toLocaleString('id-ID')} (Lunas)` : 'Belum Bayar',
+    depositTotal: `Rp${((b.deposit_amount || 150000) * 2).toLocaleString('id-ID')}`,
+    status: normalizeStatus(b.status),
+    checkWeightAgreed: true,
+    checkVenueReady: Boolean(b.venue_name || b.location),
+    checkEscrowA: b.challenger_deposit_paid,
+    checkEscrowB: b.opponent_deposit_paid,
+    notes: b.notes || 'Pertandingan terdaftar dalam sistem.',
+  };
+}
+
+async function loadBouts() {
+  try {
+    loading.value = true;
+    const res = await api.get('/bout/');
+    if (res.data && res.data.length > 0) {
+      const apiBouts = res.data.map(formatApiBout);
+      boutsList.value = [...apiBouts, ...seed];
+      selectedBout.value = boutsList.value[0];
+    }
+  } catch (err) {
+    console.warn('Menggunakan data mock:', err.message);
+  } finally {
+    loading.value = false;
+  }
+}
+
+onMounted(() => {
+  loadBouts();
+});
 
 const filteredBouts = computed(() => {
   if (filter.value === 'Semua') return boutsList.value;
@@ -26,8 +82,15 @@ function selectBout(bout) {
   selectedBout.value = bout;
 }
 
-function approveBout() {
+async function approveBout() {
   if (!selectedBout.value) return;
+  if (selectedBout.value.rawId) {
+    try {
+      await api.post(`/bout/${selectedBout.value.rawId}/approve`);
+    } catch (err) {
+      console.error('Gagal approve di backend:', err);
+    }
+  }
   selectedBout.value.status = 'Confirmed';
   selectedBout.value.checkWeightAgreed = true;
   selectedBout.value.checkVenueReady = true;
@@ -40,8 +103,17 @@ function approveBout() {
   }
 }
 
-function cancelBout() {
+async function cancelBout() {
   if (!selectedBout.value || !cancelReason.value.trim()) return;
+  if (selectedBout.value.rawId) {
+    try {
+      await api.post(`/bout/${selectedBout.value.rawId}/reject`, {
+        rejection_reason: cancelReason.value.trim(),
+      });
+    } catch (err) {
+      console.error('Gagal reject di backend:', err);
+    }
+  }
   selectedBout.value.status = 'Cancelled';
   const idx = boutsList.value.findIndex((b) => b.id === selectedBout.value.id);
   if (idx !== -1) {

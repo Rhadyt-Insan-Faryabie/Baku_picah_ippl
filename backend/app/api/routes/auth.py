@@ -1,6 +1,6 @@
 """Authentication routes."""
 from fastapi import APIRouter, Depends, HTTPException, status
-from sqlalchemy import or_, select
+from sqlalchemy import func, or_, select
 from sqlalchemy.orm import Session
 
 from app.api.deps import get_current_user
@@ -46,9 +46,18 @@ def register(payload: FighterCreate, db: Session = Depends(get_db)):
 
 @router.post("/login", response_model=Token)
 def login(payload: FighterLogin, db: Session = Depends(get_db)):
-    """Authenticate a fighter and issue an access token."""
-    fighter = db.scalar(select(Fighter).where(Fighter.email == payload.email))
-    if fighter is None or not verify_password(payload.password, fighter.password_hash):
+    """Authenticate a fighter via email or username and issue an access token."""
+    identifier = payload.email.strip().lower()
+    password = payload.password.strip()
+
+    stmt = select(Fighter).where(
+        or_(
+            func.lower(Fighter.email) == identifier,
+            func.lower(Fighter.username) == identifier,
+        )
+    )
+    fighter = db.scalar(stmt)
+    if fighter is None or not verify_password(password, fighter.password_hash):
         raise HTTPException(
             status_code=status.HTTP_401_UNAUTHORIZED,
             detail="Email atau password salah",

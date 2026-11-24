@@ -121,12 +121,19 @@ public class BoutsFragment extends Fragment {
 
     private void showOptionsMenu(View anchor) {
         PopupMenu popup = new PopupMenu(requireContext(), anchor);
-        popup.getMenu().add(0, 1, 0, "Ketentuan Escrow & Jaminan");
-        popup.getMenu().add(0, 2, 1, "Hubungi Layanan Bantuan Admin");
-        popup.getMenu().add(0, 3, 2, "Ajukan Pembatalan Laga");
+        popup.getMenu().add(0, 1, 0, "Bayar Deposit Escrow (Rp150.000)");
+        popup.getMenu().add(0, 2, 1, "Kirim Hasil Pertandingan");
+        popup.getMenu().add(0, 3, 2, "Ketentuan Escrow & Jaminan");
+        popup.getMenu().add(0, 4, 3, "Hubungi Layanan Bantuan Admin");
 
         popup.setOnMenuItemClickListener(item -> {
-            Toast.makeText(requireContext(), "Fitur " + item.getTitle() + " aktif.", Toast.LENGTH_SHORT).show();
+            if (item.getItemId() == 1) {
+                startActivity(new Intent(requireContext(), com.fight.app.ui.bout.DepositCheckoutActivity.class));
+            } else if (item.getItemId() == 2) {
+                startActivity(new Intent(requireContext(), com.fight.app.ui.bout.SubmitResultActivity.class));
+            } else {
+                Toast.makeText(requireContext(), "Fitur " + item.getTitle() + " aktif.", Toast.LENGTH_SHORT).show();
+            }
             return true;
         });
         popup.show();
