@@ -174,8 +174,8 @@ Sistem menggunakan **Midtrans Snap & QRIS Auto-Debit**:
 - **Endpoint Webhook:** `POST /api/payment/midtrans/notification`
 - **Konfigurasi Sandbox (.env):**
   ```env
-  MIDTRANS_SERVER_KEY=SB-Mid-server-test-baku-picah
-  MIDTRANS_CLIENT_KEY=SB-Mid-client-test-baku-picah
+  MIDTRANS_SERVER_KEY=SB-Mid-server-your-sandbox-key-here
+  MIDTRANS_CLIENT_KEY=SB-Mid-client-your-sandbox-key-here
   MIDTRANS_IS_PRODUCTION=false
   ```
 - Di aplikasi mobile, tombol *"Bayar Otomatis Sekarang (Midtrans QRIS)"* langsung mengeksekusi debit escrow otomatis dalam 1 klik.
